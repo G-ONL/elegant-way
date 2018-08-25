@@ -1,0 +1,22 @@
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>simpleMap</title>
+        <script src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=71255fea-c093-4b42-97bf-ac34d162bc0e"></script>
+        <script type="text/javascript">
+			function initTmap(){
+				var map = new Tmap.Map({
+					div:'map_div',
+					width : "934px",
+					height : "452px",
+				});
+				map.setCenter(new Tmap.LonLat("126.986072", "37.570028").transform("EPSG:4326", "EPSG:3857"), 15);
+			} 
+		</script>
+    </head>
+    <body onload="initTmap()">
+        <div id="map_div">
+        </div>        
+    </body>
+</html>	
