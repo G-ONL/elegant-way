@@ -3,88 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df2172ce-3594-4ba0-966c-e02a237e1ee0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/calendar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/carousel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chart.js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chartist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/chats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact-card.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cropperjs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/data-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/daum.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/documentation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dorpdown.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dropzone.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/e-commerce.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/easy-pie-chart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/echart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/editable-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/export-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/faq.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file-manager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/flot-chart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fontawesome.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/foo-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forgot-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-advanced.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-element.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-file-upload.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-mask.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-picker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-validation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-wizard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/form-x-editable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/glyphicons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/grid-styles.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inbox-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inbox.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/invoice-archive.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/invoice.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jsgrid-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/linea-icon.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/locked.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/menu-top.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modals.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/morris-chart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navi_bar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nestable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notifications.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/panels-wells.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pe-icon-7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/peity-chart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pricing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product-cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product-checkout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product-orders.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/progressbars.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/range-slider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reset-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/responsive-data-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/responsive-table.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/simple-line-icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/skills-counter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sparkline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/summernote-wysihtml5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sweetalert.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tabs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/themify.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/timeline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tinymce-wysihtml5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tmap.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/todo-tasklist.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/typeahead-js.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/typography.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vector-map.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/weather.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/google-map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmap.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/untitled5$untitled5.coverage" NAME="untitled5 Coverage Results" MODIFIED="1535288963659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/untitled5$untitled5.coverage" NAME="untitled5 Coverage Results" MODIFIED="1535289089572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-906086728">
@@ -110,14 +30,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="4" />
-          <entry key="html" value="12" />
+          <entry key="html" value="13" />
           <entry key="js" value="1" />
           <entry key="py" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="12" />
+          <entry key="HTML" value="13" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Python" value="2" />
@@ -126,13 +46,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="4567" />
-          <entry key="py" value="635" />
+          <entry key="py" value="640" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="4567" />
-          <entry key="Python" value="635" />
+          <entry key="Python" value="640" />
         </counts>
       </usages-collector>
     </session>
@@ -145,11 +65,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+            <state relative-caret-position="453">
+              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/tmap.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -164,28 +93,8 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/google-map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-39">
-              <caret line="18" column="92" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cctv.csv">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tmap.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1209" />
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -488,22 +397,8 @@
         <state relative-caret-position="-1209" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tmap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="5" column="127" selection-start-line="5" selection-start-column="91" selection-end-line="5" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cctv.csv">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="1815" column="60" selection-start-line="1815" selection-start-column="60" selection-end-line="1815" selection-end-column="60" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/google-map.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -516,10 +411,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="1815" column="60" selection-start-line="1815" selection-start-column="60" selection-end-line="1815" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tmap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="26" column="11" lean-forward="true" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        <state relative-caret-position="453">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

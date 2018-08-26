@@ -111,9 +111,7 @@ def map():
              'icon': '/static/icon/CCTV.png'}
         appendToMarkers(mark, m)
 
-    return render_template('google-map.html', mark=mark)
-
-
+    return render_template('tmap.html', mark=mark)
 
 
 if __name__ == '__main__':
