@@ -631,7 +631,7 @@
 
         <script src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=71255fea-c093-4b42-97bf-ac34d162bc0e"></script>
      <script>
-var marker_s1, marker_s2,markerStartLayer, markerEndLayer,s1_lon,s1_lat,s2_lon,s2_lat, kmlForm;
+var marker_s1, marker_s2,markerStartLayer, markerEndLayer,s1_lon,s1_lat,s1_pix,s2_lon,s2_lat,s2_pix, kmlForm, s3_lon, s3_lat,s3_pix;
 var pointFeature= new Array();
 var markerCluster;
 	// 1. 지도 띄우기
@@ -645,8 +645,10 @@ var markerCluster;
 	});
 var routeLayer = new Tmap.Layer.Vector("route");
 var pointLayer = new Tmap.Layer.Vector("point");
+var vector_layer = new Tmap.Layer.Vector('Tmap Vector Layer');
 map.addLayer(routeLayer);
 map.addLayer(pointLayer);
+map.addLayer(vector_layer);
 markerStartLayer = new Tmap.Layer.Markers();
 markerEndLayer = new Tmap.Layer.Markers();
 map.addLayer(markerStartLayer);
@@ -702,6 +704,7 @@ $.ajax({
 
         routeLayer.removeFeatures(kmlForm);
         pointLayer.removeAllFeatures();
+        vector_layer.removeAllFeatures();
         markerStartLayer.removeMarker(marker_s1);
 		markerEndLayer.removeMarker(marker_s2);
 		markerStartLayer = new Tmap.Layer.Markers("start");//마커 레이어 생성
@@ -712,7 +715,7 @@ $.ajax({
 		var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png' />", size, offset);//마커 아이콘 설정
 		marker_s1 = new Tmap.Marker(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"), icon);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 설정합니다.
 		markerStartLayer.addMarker(marker_s1);//마커 레이어에 마커 추가
-
+        s1_pix = new Tmap.Geometry.Point(lon, lat).transform("EPSG:4326", "EPSG:3857");
 		map.setCenter(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 
 		//검색 결과 표출
@@ -908,8 +911,8 @@ $.ajax({
 		var offset = new Tmap.Pixel(-(size.w / 2), -size.h);//아이콘 중심점 설정
 		var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_e.png' />", size, offset);//마커 아이콘 설정
 		marker_s2 = new Tmap.Marker(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"), icon);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 설정합니다.
-		markerEndLayer.addMarker(marker_s2);//마커 레이어에 마커 추가
-
+        markerEndLayer.addMarker(marker_s2);//마커 레이어에 마커 추가
+        s2_pix = new Tmap.Geometry.Point(lon, lat).transform("EPSG:4326", "EPSG:3857");
 		map.setCenter(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 
 		//검색 결과 표출
@@ -1121,6 +1124,27 @@ $.ajax({
 		routeLayer.addFeatures(kmlForm);
 
 		map.zoomToExtent(routeLayer.getDataExtent());
+        startX *= 1;
+        startY *= 1;
+        endX *=1;
+        endY *=1;
+		s3_lat = (startY + endY)/2;
+        s3_lon = (startX + endX)/2;
+        s3_pix = s2_pix.distanceTo(s1_pix) //단위 m
+		var coord = new Tmap.LonLat(s3_lon, s3_lat).transform("EPSG:4326", "EPSG:3857");
+		var circle = new Tmap.Geometry.Circle(coord.lon, coord.lat, s3_pix/2 + 100); // 원 생성
+
+		// 지도상에 그려질 스타일을 설정합니다
+		var style_red = {
+			fillColor:"#FF0000",
+			fillOpacity:0.2,
+			strokeColor: "#FF0000",
+			strokeWidth: 3,
+			strokeDashstyle: "solid",
+			pointRadius: 60
+		};
+		var circleFeature = new Tmap.Feature.Vector(circle, null, style_red); // 원 백터 생성
+		vector_layer.addFeatures([circleFeature]); // 원 백터 를 백터 레이어에 추가
 
 	},error:function(request,status,error){
 		console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

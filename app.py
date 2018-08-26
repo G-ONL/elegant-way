@@ -8,10 +8,10 @@ lon = data['경도']
 titleList=[]
 latList=[]
 lonList=[]
-for i in data['위도']:
-    latList.append(i)
-for i in data['경도']:
-    lonList.append(i)
+# for i in data['위도']:
+#     latList.append(i)
+# for i in data['경도']:
+#     lonList.append(i)
 
 
 
@@ -20,7 +20,7 @@ app = Flask(__name__)
 @app.before_first_request
 @app.route('/')
 def hello_world():
-    return render_template('google-map.html',lat=latList,lon=lonList)
+    return render_template("google-map.html",title=titleList,lat=latList,lon=lonList)
 
 @app.route('/map')
 def map():
