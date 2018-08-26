@@ -13,6 +13,17 @@
 		
 		<!-- Custom CSS -->
 		<link href="static/dist/css/style.css" rel="stylesheet" type="text/css">
+         <style>
+        #map_div{position:relative;overflow:hidden;}
+        .category, .category *{margin:0px;padding:0px;color:#000;}
+        .category {position:absolute;overflow:hidden;top:107px;left:8px;width:38px;height:540px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#fff;}
+        .category .menu_selected_good {background: #6cea90;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
+        .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
+        .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
+        .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
+
+
+    </style>
 	</head>
 	<body>
 		<!--Preloader-->
@@ -515,7 +526,7 @@
 					<!-- Title -->					
 					<div class="row heading-bg">
 						<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						  <h5 class="txt-dark">google map</h5>
+						  <h5 class="txt-dark">우아한 길(우리 아이 안전한 길)</h5>
 						</div>
 						
 						<!-- Breadcrumb -->
@@ -543,31 +554,79 @@
 						<div class="col-lg-12">
 							<div class="panel panel-default border-panel card-view">
 								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">map style 3</h6>
-									</div>
+
 									<div class="clearfix"></div>
 								</div>
 
-                                    <input type="button" onclick="show()" value="클러스터 보이기" class="postbutton">
-                                    <input type="button" onclick="hide()" value="클러스터 숨기기" class="postbutton">
+
 								<div class="panel-wrapper collapse in">
 
+                                    <div class="row" style="padding: 10px 0 10px 30px;">
+                                   <div class="col-md-6" id="first">
                                     <div class="input-group">
-							<input type="text" id="search_map1" name="example-input1-group2" class="form-control" placeholder="출발지점">
+							<input type="text" id="search_map1" name="example-input1-group2" class="form-control" placeholder="출발지점 및 지점 검색">
 							<span class="input-group-btn">
 							<button type="button" id="map_button1" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
 							</span>
 						</div>
+                       </div>
 
+                                    <div id="second" class="col-md-6" style="display:none;">
                                     <div class="input-group">
 							<input type="text" id="search_map2" name="example-input1-group2" class="form-control" placeholder="도착지점">
 							<span class="input-group-btn">
 							<button type="button" id="map_button2" class="btn  btn-default"  data-target="#search_form" data-toggle="collapse" aria-label="Close" aria-expanded="true"><i class="zmdi zmdi-search"></i></button>
 							</span>
 						</div>
-
+                        </div>
+                            </div>
 									<div class="panel-body">
+                                          <div class="category">
+                                        <ul>
+                                            <li class="menu_selected_bad" id="schoolZone" onclick="changeMarker('schoolZone')">
+                                                <img src="static/icon/schoolZone.png" alt="스쿨존 교통사고 다발지역" title='스쿨존 어린이 교통사고 다발지역'/>
+                                            </li>
+                                            <li class="menu_selected_bad" id="construction" onclick="changeMarker('construction')">
+                                                <img src="static/icon/construction.png" alt="공사현장" title='공사현장'/>
+                                            </li>
+                                            <li class="menu_selected_bad" id="motel" onclick="changeMarker('motel')">
+                                                <img src="static/icon/motel.png"  alt="모텔" title='모텔'/>
+                                            </li>
+                                            <li class="menu_selected_bad" id="childPedestrianAccident" onclick="changeMarker('childPedestrianAccident')">
+                                                <img src="static/icon/childPedestrianAccident.png"  alt="어린이 보행자 사고다발구역" title='어린이 보행자 사고다발구역'/>
+                                            </li>
+                                            <li class="menu_selected_bad" id="roomSalon" onclick="changeMarker('roomSalon')">
+                                                <img src="static/icon/roomSalon.png"  alt="유흥주점" title='유흥주점'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="childSafetyZone" onclick="changeMarker('childSafetyZone')">
+                                                <img src="static/icon/childSafetyZone.png"  alt="어린이 안전 구역" title='어린이 안전구역'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="fireStation" onclick="changeMarker('fireStation')">
+                                                <img src="static/icon/fireStation.png"  alt="소방서" title='소방서' />
+                                            </li>
+                                            <li class="menu_selected_good" id="fireStationSafetyCenter" onclick="changeMarker('fireStationSafetyCenter')">
+                                                <img src="static/icon/fireStationSafetyCenter.png"  alt="119 안전센터" title='119 안전센터'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="elementarySchool" onclick="changeMarker('elementarySchool')">
+                                                <img src="static/icon/elementarySchool.png"  alt="초등학교" title='초등학교'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="playGround" onclick="changeMarker('playGround')">
+                                                <img src="static/icon/playGround.png"  alt="어린이 놀이터" title='어린이 놀이터'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="policeOffice" onclick="changeMarker('policeOffice')">
+                                                <img src="static/icon/policeOffice.png"  alt="경찰서" title='경찰서'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="kindergarten" onclick="changeMarker('kindergarten')">
+                                                <img src="static/icon/kindergarten.png"  alt="유치원" title='유치원'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="childSafetyHouse" onclick="changeMarker('childSafetyHouse')">
+                                                <img src="static/icon/childSafetyHouse.png"  alt="아동 안전 지킴이 집" title='아동 안전 지킴이 집'/>
+                                            </li>
+                                            <li class="menu_selected_good" id="CCTV" onclick="changeMarker('CCTV')">
+                                                <img src="static/icon/CCTV.png"  alt="CCTV" title='CCTV'/>
+                                            </li>
+                                        </ul>
+                                    </div>
                                          <div id="map_div">
                                          </div>
 									</div>
@@ -634,18 +693,33 @@
 var marker_s1, marker_s2,markerStartLayer, markerEndLayer,s1_lon,s1_lat,s1_pix,s2_lon,s2_lat,s2_pix, kmlForm, s3_lon, s3_lat,s3_pix;
 var pointFeature= new Array();
 var markerCluster;
+
 	// 1. 지도 띄우기
 	// map 생성
 	// Tmap.map을 이용하여, 지도가 들어갈 div, 넓이, 높이를 설정합니다.
 	map = new Tmap.Map({
 		div : 'map_div',// map을 표시해줄 div
 		width : "100%",// map의 width 설정
-		height : "400px",// map의 height 설정
-
+		height : "540px",// map의 height 설정
 	});
+
 var routeLayer = new Tmap.Layer.Vector("route");
 var pointLayer = new Tmap.Layer.Vector("point");
 var vector_layer = new Tmap.Layer.Vector('Tmap Vector Layer');
+var schoolZonemarkerLayer = new Tmap.Layer.Markers();
+var constructionmarkerLayer = new Tmap.Layer.Markers();
+var childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
+var childSafetyZonemarkerLayer = new Tmap.Layer.Markers();
+var fireStationmarkerLayer = new Tmap.Layer.Markers();
+var fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
+var policeOfficemarkerLayer = new Tmap.Layer.Markers();
+var roomSalonmarkerLayer = new Tmap.Layer.Markers();
+var childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
+var motelmarkerLayer = new Tmap.Layer.Markers();
+var playGroundmarkerLayer = new Tmap.Layer.Markers();
+var elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
+var kindergartenmarkerLayer = new Tmap.Layer.Markers();
+var cctvmarkerLayer = new Tmap.Layer.Markers();
 map.addLayer(routeLayer);
 map.addLayer(pointLayer);
 map.addLayer(vector_layer);
@@ -656,6 +730,7 @@ map.addLayer(markerEndLayer);
 map.setCenter(new Tmap.LonLat("126.986072", "37.570028").transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 $("#map_button1").on("click",function() {//클릭되면 하고싶은것!
     var text = $("#search_map1").val()
+    document.getElementById("second").style.display = "block";
 
 
 // 2. API 사용요청
@@ -701,10 +776,62 @@ $.ajax({
 		}
 		s1_lon = lon
         s1_lat = lat
-
         routeLayer.removeFeatures(kmlForm);
         pointLayer.removeAllFeatures();
         vector_layer.removeAllFeatures();
+
+        schoolZonemarkerLayer.destroy();
+        schoolZonemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(schoolZonemarkerLayer);
+
+        constructionmarkerLayer.destroy();
+        constructionmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(constructionmarkerLayer);
+
+        childPedestrianAccidentmarkerLayer.destroy();
+        childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(childPedestrianAccidentmarkerLayer);
+
+        fireStationmarkerLayer.destroy();
+        fireStationmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(fireStationmarkerLayer);
+
+        fireStationSafetyCentermarkerLayer.destroy();
+        fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(fireStationSafetyCentermarkerLayer);
+
+        policeOfficemarkerLayer.destroy();
+        policeOfficemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(policeOfficemarkerLayer);
+
+        roomSalonmarkerLayer.destroy();
+        roomSalonmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(roomSalonmarkerLayer);
+
+        childSafetyHousemarkerLayer.destroy();
+        childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(childSafetyHousemarkerLayer);
+
+        motelmarkerLayer.destroy();
+        motelmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(motelmarkerLayer);
+
+        playGroundmarkerLayer.destroy();
+        playGroundmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(playGroundmarkerLayer);
+
+        elementarySchoolmarkerLayer.destroy();
+        elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(elementarySchoolmarkerLayer);
+
+        kindergartenmarkerLayer.destroy();
+        kindergartenmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(kindergartenmarkerLayer);
+
+        cctvmarkerLayer.destroy();
+        cctvmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(cctvmarkerLayer);
+
         markerStartLayer.removeMarker(marker_s1);
 		markerEndLayer.removeMarker(marker_s2);
 		markerStartLayer = new Tmap.Layer.Markers("start");//마커 레이어 생성
@@ -1130,9 +1257,81 @@ $.ajax({
         endY *=1;
 		s3_lat = (startY + endY)/2;
         s3_lon = (startX + endX)/2;
-        s3_pix = s2_pix.distanceTo(s1_pix) //단위 m
+        s3_pix = s2_pix.distanceTo(s1_pix); //단위 m
+        var mark10 = {{ mark | tojson | safe }};
+        var s3_pow =  Math.pow(s1_lat-s3_lat,2) + Math.pow(s1_lon-s3_lon,2);
 		var coord = new Tmap.LonLat(s3_lon, s3_lat).transform("EPSG:4326", "EPSG:3857");
 		var circle = new Tmap.Geometry.Circle(coord.lon, coord.lat, s3_pix/2 + 100); // 원 생성
+        var positions = new Array();
+
+        for(var i=0 ; i< mark10.length; i++ ){
+            temp_lat = mark10[i]['lat']
+            temp_lon = mark10[i]['lng']
+
+            if ( s3_pow > Math.pow(temp_lat-s3_lat,2) + Math.pow(temp_lon-s3_lon,2)){
+                positions.push({
+                    category: mark10[i]['title'],
+                    title: mark10[i]['infobox'],
+                    lonlat: new Tmap.LonLat(temp_lon, temp_lat).transform("EPSG:4326", "EPSG:3857"),//좌표 지정
+                    icon: mark10[i]['icon'],
+                });
+                console.log('성공');
+            };
+        };
+
+
+
+		var size = new Tmap.Size(12, 20);//아이콘 크기
+		var offset = new Tmap.Pixel(-(size.w / 2), -(size.h));//아이콘 중심점
+
+		for (var i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성
+			var icon = new Tmap.Icon(positions[i].icon,size, offset);//아이콘 설정
+			var lonlat = positions[i].lonlat;//좌표값
+			marker = new Tmap.Marker(lonlat, icon);//마커 생성
+            if (positions[i].category == "schoolZone"){
+                schoolZonemarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "construction"){
+                constructionmarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "childPedestrianAccident"){
+                childPedestrianAccidentmarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "childSafetyZone"){
+                childSafetyZonemarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "fireStation"){
+                fireStationmarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "fireStationSafetyCenter"){
+                fireStationSafetyCentermarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "policeOffice"){
+                policeOfficemarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "roomSalon"){
+                roomSalonmarkerLayer.addMarker(marker);
+            }
+            else if (positions[i].category == "childSafetyHouse"){
+                childSafetyHousemarkerLayer.addMarker(marker);
+            }
+             else if (positions[i].category == "motel"){
+                motelmarkerLayer.addMarker(marker);
+            }
+             else if (positions[i].category == "playGround"){
+                playGroundmarkerLayer.addMarker(marker);
+            }
+             else if (positions[i].category == "elementarySchool"){
+                elementarySchoolmarkerLayer.addMarker(marker);
+            }
+             else if (positions[i].category == "kindergarten"){
+                kindergartenmarkerLayer.addMarker(marker);
+            }
+             else if (positions[i].category == "cctv"){
+                cctvmarkerLayer.addMarker(marker);
+            }
+			 //마커 레이어에 마커 추가
+		}
 
 		// 지도상에 그려질 스타일을 설정합니다
 		var style_red = {
@@ -1154,68 +1353,133 @@ $.ajax({
                  });
 
 
+        function changeMarker(info){
+           var Menu = document.getElementById(info);
 
-var markerLayer1 = new Tmap.Layer.Markers( "MarkerLayer" );
-map.addLayer(markerLayer1);
-{##}
-{#var size = new Tmap.Size(12,24);#}
-{#var offset = new Tmap.Pixel(-(size.w/2), -size.h);#}
+           //이미 선택되어있으면 해당마커가 안보이게 설정
+           if(Menu.className === 'menu_selected_bad' || Menu.className === 'menu_selected_good'){
+               Menu.className = '';
+                      if (info == "schoolZone"){
+                schoolZonemarkerLayer.setVisibility(false); // 레이어의 화면 표출 여부
+            }
+            else if (info == "construction"){
+                constructionmarkerLayer.setVisibility(false);
+            }
+            else if (info == "childPedestrianAccident"){
+                childPedestrianAccidentmarkerLayer.setVisibility(false);
+            }
+             else if (info == "roomSalon"){
+                roomSalonmarkerLayer.setVisibility(false);
+            }
+              else if (info == "motel"){
+                motelmarkerLayer.setVisibility(false);
+            }
+            else if (info == "childSafetyZone"){
+                childSafetyZonemarkerLayer.setVisibility(false);
+            }
+            else if (info == "fireStation"){
+                fireStationmarkerLayer.setVisibility(false);
+            }
+            else if (info == "fireStationSafetyCenter"){
+                fireStationSafetyCentermarkerLayer.setVisibility(false);
+            }
+            else if (info == "policeOffice"){
+                policeOfficemarkerLayer.setVisibility(false);
+            }
 
-{#var testList = new Array();#}
-{#for(var k=0; k< lonList.length; k++) {#}
-{#           // 객체 생성#}
-{#           var data = new Object();#}
-{#           data.title = "title";#}
-{#           data.lonlat = new Tmap.LonLat( lonList[k] , latList[k]).transform("EPSG:4326","EPSG:3857");#}
-{#           // 리스트에 생성된 객체 삽입#}
-{#           testList.push(data);#}
-{##}
-{#};#}
-{#var positions = testList;#}
-{#  console.log(positions)#}
-{#		for (var i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성#}
-{#			var icon = new Tmap.Icon('http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png',size, offset);//아이콘 설정#}
-{#			var lonlat = positions[i].lonlat;//좌표값#}
-{#			marker = new Tmap.Marker(lonlat, icon);//마커 생성#}
-{#			markerLayer1.addMarker(marker); //마커 레이어에 마커 추가#}
-{#		}#}
-var lonList = {{ lon }}
-var latList = {{ lat }}
-  var markers = [];
-        var i = 0;
-        for (var i = 0; i < lonList.length; i++) {
-                var point = new Tmap.LonLat(lonList[i], latList[i]).transform("EPSG:4326", "EPSG:3857");
-                var marker = new Tmap.Cluster.Marker(point, {
-                    icon: "http://tmapapis.sktelecom.com/upload/tmap/marker/pin_b_m_a.png", // 마커 이미지 url
-                    width: 20, // 마커 사이즈
-                    data: lonList[i] + "," + latList[i], // 클릭 이벤트시에 사용할 데이터
-                    clickHandler: function (e) { // 클릭 이벤트 핸들러
-                        alert(e.data);
-                    }
-                });
-                markers.push(marker);
+            else if (info == "childSafetyHouse"){
+                childSafetyHousemarkerLayer.setVisibility(false);
+            }
 
+             else if (info == "playGround"){
+                playGroundmarkerLayer.setVisibility(false);
+            }
+             else if (info == "elementarySchool"){
+                elementarySchoolmarkerLayer.setVisibility(false);
+            }
+             else if (info == "kindergarten"){
+                kindergartenmarkerLayer.setVisibility(false);
+            }
+             else if (info == "CCTV"){
+                cctvmarkerLayer.setVisibility(false);
+            }
+           }
+           else{
+               //그것이 아니면 선택되고 해당되는 마커가 보이게 설정
+               if(info==='kindergarten' ||
+                   info==='fireStation' ||
+                   info==='fireStationSafetyCenter'  ||
+                   info==='playGround' ||
+                   info==='policeOffice' ||
+                   info==='elementarySchool' ||
+                   info==='childSafetyHouse' ||
+                   info==='CCTV' ) {
+                   Menu.className = 'menu_selected_good';
+
+            if (info == "fireStation"){
+                fireStationmarkerLayer.setVisibility(true);
+            }
+            else if (info == "fireStationSafetyCenter"){
+                fireStationSafetyCentermarkerLayer.setVisibility(true);
+            }
+            else if (info == "policeOffice"){
+                policeOfficemarkerLayer.setVisibility(true);
+            }
+
+            else if (info == "childSafetyHouse"){
+                childSafetyHousemarkerLayer.setVisibility(true);
+            }
+
+             else if (info == "playGround"){
+                playGroundmarkerLayer.setVisibility(true);
+            }
+             else if (info == "elementarySchool"){
+                elementarySchoolmarkerLayer.setVisibility(true);
+            }
+             else if (info == "kindergarten"){
+                kindergartenmarkerLayer.setVisibility(true);
+            }
+             else if (info == "CCTV"){
+                cctvmarkerLayer.setVisibility(true);
+            }
+               }
+               else{
+                   Menu.className = 'menu_selected_bad';
+
+                    if (info == "schoolZone"){
+                schoolZonemarkerLayer.setVisibility(true); // 레이어의 화면 표출 여부
+            }
+            else if (info == "construction"){
+                constructionmarkerLayer.setVisibility(true);
+            }
+            else if (info == "childPedestrianAccident"){
+                childPedestrianAccidentmarkerLayer.setVisibility(true);
+            }
+             else if (info == "roomSalon"){
+                roomSalonmarkerLayer.setVisibility(true);
+            }
+              else if (info == "motel"){
+                motelmarkerLayer.setVisibility(true);
+            }
+            else if (info == "childSafetyZone"){
+                childSafetyZonemarkerLayer.setVisibility(true);
+            }
+               }
+           }
         }
 
-        // 클러스터용 아이콘
-        // 클러스터 된 개수별로 아이콘을 변경 가능
-        var icons = [];
-        icons.push(new Tmap.Cluster.Icon("http://topopentile1.tmap.co.kr/tmapicon/map/clusterbg1.png", { width: 20, fontColor: "#333333", fontSize: 15 }));
-        icons.push(new Tmap.Cluster.Icon("http://topopentile1.tmap.co.kr/tmapicon/map/clusterbg2.png", { width: 25, fontColor: "#333333", fontSize: 15 }));
-        icons.push(new Tmap.Cluster.Icon("http://topopentile1.tmap.co.kr/tmapicon/map/clusterbg3.png", { width: 30, fontColor: "#333333", fontSize: 15 }));
+        //마커가 보이게 설정되어있으면 true 반환하고 아니면 false 반환
+        function isSelected(info){
+           var Menu = document.getElementById(info);
 
-        // 마커클러스터 등록
-        // gap : 값이 10이면 10개단위로 icon 변경
-        // distance : 클러스터링 할 픽셀 거리
-    markerCluster = new Tmap.Cluster.Layer(map, {markers: markers, icon: icons, gap: 30, distance: 100});
-    console.log(markerCluster)
+           if(Menu.className === 'menu_selected_good' || Menu.className === 'menu_selected_bad'){
+               return true
+           }
+           else{
+               return false
+           }
+        }
 
-function show(){
-    markerCluster.setVisibility(true);
-}
-function hide(){
-    markerCluster.setVisibility(false);
-}
 
 </script>
      <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
