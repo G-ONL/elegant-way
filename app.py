@@ -23,12 +23,9 @@ def appendToMarkers(markerArray, marker):
     else:
         return ''
 
-
-
 @app.before_first_request
-@app.route('/map')
+@app.route('/')
 def map():
-
     mark=[]
 
     # 스쿨존어린이교통사고다발구역
@@ -117,50 +114,6 @@ def map():
     return render_template('google-map.html', mark=mark)
 
 
-@app.before_first_request
-@app.route('/')
-def hello_world():
-    return render_template("google-map.html")
-
-@app.route('/chart_js')
-def chart_js():
-    return render_template('chart.js.html')
-
-@app.route('/chartist')
-def chartist():
-    return render_template('chartist.html')
-
-@app.route('/charts')
-def charts():
-    return render_template('chats.html')
-
-@app.route('/easy_pie_chart')
-def easy_pie_chart():
-    return render_template('easy-pie-chart.html')
-
-@app.route('/echart')
-def echart():
-    return render_template('echart.html')
-
-@app.route('/flot_chart')
-def flot_chart():
-    return render_template('flot-chart.html')
-
-@app.route('/morris_chart')
-def morris_chart():
-    return render_template('morris-chart.html')
-
-@app.route('/peity_chart')
-def peity_chart():
-    return render_template('peity-chart.html')
-
-@app.route('/sparkline')
-def sparkline():
-    return render_template('sparkline.html')
-
-@app.route('/e-commerce')
-def e_commerce():
-    return render_template('e-commerce.html')
 
 
 if __name__ == '__main__':
