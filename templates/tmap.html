@@ -21,7 +21,9 @@
         .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
-        .category1 {position:absolute;overflow:hidden;top:136px;left:58px;width:400px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category1 {position:absolute;overflow:hidden;top:136px;left:58px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category2 {position:absolute;overflow:hidden;top:136px;left:158px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category3 {position:absolute;overflow:hidden;top:136px;left:258px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
         .badbad {background: #FF5F4A;}
         .badbad img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
         .goodgood {background: #6cea90;}
@@ -547,25 +549,25 @@
 
 
 									<div class="panel-body">
-                                         <div class="category1">
-                                            <div class="row">
-                                                <div class="col-md-4">
+
+
+                                                <div class="category1">
+                                                    <button checked="checked;"> </button>
                                                     <span class="panel-title txt-dark">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <span class="panel-title txt-dark">반경 :  </span>
-                                                    <select name="sel" id="sel" onchange="chageLangSelect()">
+                                                 <div class="category2">
+                                                    <select class="form-control form-control-sm"  style="height:100%; width: 100%; padding:0;" name="sel" id="sel" onchange="chageLangSelect()">
                                                          <option value=550>0.5km</option>
                                                          <option value=1050>1km</option>
                                                          <option value=1550>1.5km</option>
                                                          <option value=2050>2km</option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-4" style="text-align: center;">
-                                                    <button onclick="location2();" class="btn btn-danger" style="height:25px; padding:0;">현재위치</button>
+                                                 <div class="category3">
+                                                    <button onclick="location2();" class="btn btn-danger" style="height:100%; width: 100%; padding:0;">현재위치</button>
                                                 </div>
-                                            </div>
-                                         </div>
+
+
                                           <div class="category">
                                         <ul>
                                             <li class="menu_selected_bad" id="schoolZone" onclick="changeMarker('schoolZone')">
@@ -1398,7 +1400,7 @@ $.ajax({
             temp_lat = mark10[i]['lat']
             temp_lon = mark10[i]['lng']
             var d = calculateDistance(temp_lat, temp_lon,s3_lat, s3_lon);
-            if ( s3_pix * 0.001 >d + 0.08  ){
+            if ( s3_pix * 0.001 >d * 1.3  ){
 
                 positions.push({
                     category: mark10[i]['title'],
