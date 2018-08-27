@@ -16,14 +16,14 @@
          <style>
         #map_div{position:relative;overflow:hidden;}
         .category, .category *{margin:0px;padding:0px;color:#000;}
-        .category {position:absolute;overflow:hidden;top:136px;left:21px;width:38px;height:540px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#fff;}
+        .category {position:absolute;overflow:hidden;top:128px;left:21px;width:38px;height:540px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#fff;}
         .category .menu_selected_good {background: #6cea90;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
-        .category1 {position:absolute;overflow:hidden;top:136px;left:58px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
-        .category2 {position:absolute;overflow:hidden;top:136px;left:158px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
-        .category3 {position:absolute;overflow:hidden;top:136px;left:258px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category1 {position:absolute;overflow:hidden;top:136px;right:58px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
+        .category2 {position:absolute;overflow:hidden;top:136px;right:158px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
+        .category3 {position:absolute;overflow:hidden;top:136px;right:258px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
         .badbad {background: #FF5F4A;}
         .badbad img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
         .goodgood {background: #6cea90;}
@@ -552,19 +552,18 @@
 
 
                                                 <div class="category1">
-                                                    <button checked="checked;"> </button>
-                                                    <span class="panel-title txt-dark">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
-                                                </div>
-                                                 <div class="category2">
-                                                    <select class="form-control form-control-sm"  style="height:100%; width: 100%; padding:0;" name="sel" id="sel" onchange="chageLangSelect()">
+                                                       <select class="form-control form-control-sm"  style="height:100%; width: 100%; padding:0;" name="sel" id="sel" onchange="chageLangSelect()">
                                                          <option value=550>0.5km</option>
                                                          <option value=1050>1km</option>
                                                          <option value=1550>1.5km</option>
                                                          <option value=2050>2km</option>
                                                     </select>
                                                 </div>
+                                                 <div class="category2">
+                                                 <button type="button" class="btn btn-warning"id="myCheck" onclick="start()" style="background: #ff6028; height: 100%; width:100%; padding:0;" value=1>중심원</button>
+                                                </div>
                                                  <div class="category3">
-                                                    <button onclick="location2();" class="btn btn-danger" style="height:100%; width: 100%; padding:0;">현재위치</button>
+                                                    <button onclick="location2();" class="btn btn-danger" style="background: #ff6028;height:100%; width: 100%; padding:0;">현재위치</button>
                                                 </div>
 
 
@@ -623,8 +622,8 @@
                                                 <div class="option">
                                                     <div>
                                                         <form onsubmit="searchPlaces(); return false;">
-                                                            <input type="text" value="안암" id="keyword" size="30">
-                                                            <button class="btn btn-success" type="submit">검색</button>
+                                                            <input type="text" id="keyword" size="30" placeholder="출발지점">
+                                                            <button class="btn btn-success" style="padding: 0; width:100px; height: 30px;background: #ff6028;" type="submit">검색</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -634,8 +633,8 @@
                                                 <div class="option">
                                                     <div>
                                                         <form onsubmit="searchPlaces1(); return false;">
-                                                            <span class="panel-title txt-dark">도착지점 : </span><input type="text" value="" id="keyword1" size="30">
-                                                            <button class="btn btn-success" type="submit">검색하기</button>
+                                                            <input type="text" id="keyword1" size="30" placeholder="도착지점">
+                                                            <button class="btn btn-success" style="padding: 0; width:100px; height: 30px;background: #ff6028;" type="submit">검색</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -848,8 +847,8 @@ function onGeolocationSuccess(position) { // 좌표 출력
             sel = document.getElementById("sel");
             val = sel.options[sel.selectedIndex].value;
             document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
-    state = true
-start(val)
+    state = true;
+mouseUp(val);
 
         },
     });
@@ -870,15 +869,18 @@ function location2() {
 function chageLangSelect(){
     sel = document.getElementById("sel");
     val = sel.options[sel.selectedIndex].value;
-    start(val);
+    mouseUp(val);
 }
 
 function start(val){
     var checkBox = document.getElementById("myCheck");
   // Get the output text
 
-  if (checkBox.checked == true){
+  if (checkBox.value == 1 && state== false){
     state = true;
+    document.getElementById("myCheck").style.backgroundColor="#ff6028";
+    document.getElementById("myCheck").style.color="#FFFFFF";
+    document.getElementById("myCheck").value = 0;
     val = sel.options[sel.selectedIndex].value;
     document.getElementById("analysis").style.display = "block";
     mouseUp(val);
@@ -890,6 +892,9 @@ function start(val){
 	markerEndLayer.removeMarker(marker_s2);
   } else {
     state = false;
+    document.getElementById("myCheck").style.backgroundColor="#FFFFFF";
+    document.getElementById("myCheck").style.color="#123456";
+    document.getElementById("myCheck").value = 1;
     center_layer.removeAllFeatures();
     deletemarker();
     document.getElementById("analysis").style.display = "none";
