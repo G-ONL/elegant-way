@@ -16,12 +16,12 @@
          <style>
         #map_div{position:relative;overflow:hidden;}
         .category, .category *{margin:0px;padding:0px;color:#000;}
-        .category {position:absolute;overflow:hidden;top:124px;left:21px;width:38px;height:540px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#fff;}
+        .category {position:absolute;overflow:hidden;top:136px;left:21px;width:38px;height:540px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#fff;}
         .category .menu_selected_good {background: #6cea90;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
-        .category1 {position:absolute;overflow:hidden;top:124px;left:58px;width:400px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category1 {position:absolute;overflow:hidden;top:136px;left:58px;width:400px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
         .badbad {background: #FF5F4A;}
         .badbad img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
         .goodgood {background: #6cea90;}
@@ -829,6 +829,8 @@ map.addLayers([center_layer]); // 지도에 백터 레이어 추가
 var sel = document.getElementById("sel");
 var val = sel.options[sel.selectedIndex].value;
 var state = true
+document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
+
 
 function onGeolocationSuccess(position) { // 좌표 출력
     my_lat = position.coords.latitude;
@@ -841,14 +843,10 @@ function onGeolocationSuccess(position) { // 좌표 출력
         data:params,
         success: function(data) {
             map.setCenter(new Tmap.LonLat(my_lon, my_lat).transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
-         var sel = document.getElementById("sel");
-var val = sel.options[sel.selectedIndex].value;
-
-document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
-var state = true
-
-
-
+            sel = document.getElementById("sel");
+            val = sel.options[sel.selectedIndex].value;
+            document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
+    state = true
 start(val)
 
         },
@@ -870,7 +868,6 @@ function location2() {
 function chageLangSelect(){
     sel = document.getElementById("sel");
     val = sel.options[sel.selectedIndex].value;
-
     start(val);
 }
 

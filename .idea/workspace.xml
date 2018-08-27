@@ -49,14 +49,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="9733" />
+          <entry key="html" value="9753" />
           <entry key="py" value="1495" />
           <entry key="scss" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="9733" />
+          <entry key="HTML" value="9753" />
           <entry key="Python" value="1495" />
           <entry key="SCSS" value="12" />
         </counts>
@@ -84,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tmap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="794" column="47" selection-start-line="794" selection-start-column="47" selection-end-line="794" selection-end-column="47" />
+            <state relative-caret-position="25">
+              <caret line="831" column="91" selection-start-line="831" selection-start-column="91" selection-end-line="831" selection-end-column="91" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -550,8 +550,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/tmap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="794" column="47" selection-start-line="794" selection-start-column="47" selection-end-line="794" selection-end-column="47" />
+        <state relative-caret-position="25">
+          <caret line="831" column="91" selection-start-line="831" selection-start-column="91" selection-end-line="831" selection-end-column="91" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
