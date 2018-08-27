@@ -643,7 +643,7 @@
                                          <div id="map_div">
                                          </div>
                                         <div style="display:block; margin-left: auto; margin-right: auto;">
-                                    <table id="analysis" style="width:100%;margin-left: auto;  float: right; margin-right: auto;">
+                                    <table id="analysis" style="width:540px;margin-left: auto;  margin-right: auto;">
                                       <tr>
                                         <th class="badbad"><img src="static/icon/schoolZone.png" alt="스쿨존 교통사고 다발지역" title='스쿨존 어린이 교통사고 다발지역'/></th>
                                         <th class="badbad"><img src="static/icon/construction.png" alt="공사현장" title='공사현장'/></th>
@@ -660,7 +660,7 @@
                                         <th class="goodgood"><img src="static/icon/childSafetyHouse.png"  alt="아동 안전 지킴이 집" title='아동 안전 지킴이 집'/></th>
                                         <th class="goodgood"><img src="static/icon/CCTV.png"  alt="CCTV" title='CCTV'/></th>
                                       </tr>
-                                      <tr>
+                                      <tr style="text-align: center; font-weight: bold;">
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -788,19 +788,35 @@ var routeLayer = new Tmap.Layer.Vector("route");
 var pointLayer = new Tmap.Layer.Vector("point");
 var vector_layer = new Tmap.Layer.Vector('Tmap Vector Layer');
 var schoolZonemarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(schoolZonemarkerLayer);
 var constructionmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(constructionmarkerLayer);
 var childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(childPedestrianAccidentmarkerLayer);
 var childSafetyZonemarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(childSafetyZonemarkerLayer);
 var fireStationmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer( fireStationmarkerLayer);
 var fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(fireStationSafetyCentermarkerLayer);
 var policeOfficemarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(policeOfficemarkerLayer);
 var roomSalonmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(roomSalonmarkerLayer);
 var childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(childSafetyHousemarkerLayer);
 var motelmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer( motelmarkerLayer);
 var playGroundmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(playGroundmarkerLayer);
 var elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(elementarySchoolmarkerLayer);
 var kindergartenmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(kindergartenmarkerLayer);
 var cctvmarkerLayer = new Tmap.Layer.Markers();
+map.addLayer(cctvmarkerLayer);
+
+
 map.addLayer(routeLayer);
 map.addLayer(pointLayer);
 map.addLayer(vector_layer);
@@ -1140,61 +1156,30 @@ function mouseUp(val) {
            }
         }
 function deletemarker(){
-    schoolZonemarkerLayer.destroy();
-        schoolZonemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(schoolZonemarkerLayer);
+        schoolZonemarkerLayer.clearMarkers();
 
-        constructionmarkerLayer.destroy();
-        constructionmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(constructionmarkerLayer);
+        constructionmarkerLayer.clearMarkers();
 
-        childPedestrianAccidentmarkerLayer.destroy();
-        childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childPedestrianAccidentmarkerLayer);
+        childPedestrianAccidentmarkerLayer.clearMarkers();
 
-        fireStationmarkerLayer.destroy();
-        fireStationmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationmarkerLayer);
+        fireStationmarkerLayer.clearMarkers();
+        fireStationSafetyCentermarkerLayer.clearMarkers();
+        policeOfficemarkerLayer.clearMarkers();
+        roomSalonmarkerLayer.clearMarkers();
 
-        fireStationSafetyCentermarkerLayer.destroy();
-        fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationSafetyCentermarkerLayer);
+        childSafetyHousemarkerLayer.clearMarkers();
 
-        policeOfficemarkerLayer.destroy();
-        policeOfficemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(policeOfficemarkerLayer);
+        motelmarkerLayer.clearMarkers();
+        playGroundmarkerLayer.clearMarkers();
 
-        roomSalonmarkerLayer.destroy();
-        roomSalonmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(roomSalonmarkerLayer);
+        elementarySchoolmarkerLayer.clearMarkers();
 
-        childSafetyHousemarkerLayer.destroy();
-        childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childSafetyHousemarkerLayer);
+        kindergartenmarkerLayer.clearMarkers();
 
-        motelmarkerLayer.destroy();
-        motelmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(motelmarkerLayer);
+        childSafetyZonemarkerLayer.clearMarkers();
 
-        playGroundmarkerLayer.destroy();
-        playGroundmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(playGroundmarkerLayer);
+        cctvmarkerLayer.clearMarkers();
 
-        elementarySchoolmarkerLayer.destroy();
-        elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(elementarySchoolmarkerLayer);
-
-        kindergartenmarkerLayer.destroy();
-        kindergartenmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(kindergartenmarkerLayer);
-
-        childSafetyZonemarkerLayer.destroy();
-        childSafetyZonemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childSafetyZonemarkerLayer);
-
-        cctvmarkerLayer.destroy();
-        cctvmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(cctvmarkerLayer);
     }
 
     function countfeacture(area){
@@ -1220,7 +1205,7 @@ var params= "feacture="+[policeOfficecounter,motelcounter,constructioncounter,cc
         url:"/predict",
         data:params,
         success: function(data) {
-
+                console.log(data)
             },
 
     });
