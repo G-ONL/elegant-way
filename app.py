@@ -19,10 +19,19 @@ def read_collection(name):
 stat = pd.DataFrame(list((read_collection('statistics'))))
 stat.drop(columns="_id",inplace=True)
 
+cols = list(stat.columns)
+col = cols[0:3] + cols[4:]
+col.append(cols[3])
+stat = stat[col]
+
+
+
 lab_enc = preprocessing.LabelEncoder()
 stat.iloc[:, -1] = lab_enc.fit_transform(stat.iloc[:,-1]) #자료형 바꿔주기
+
 logi = LogisticRegression()
 logi.fit(stat.iloc[:,:-1],stat.iloc[:,-1])
+
 
 @app.route('/predict',methods=['GET'])
 def predict():

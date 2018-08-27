@@ -24,6 +24,7 @@
         .category1 {position:absolute;overflow:hidden;top:136px;right:58px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
         .category2 {position:absolute;overflow:hidden;top:136px;right:158px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
         .category3 {position:absolute;overflow:hidden;top:136px;right:258px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
+        .predict {position:absolute;overflow:hidden;top:570px;right:45px;width:100px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:right;background-color:#f9ff05;}
         .badbad {background: #FF5F4A;}
         .badbad img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
         .goodgood {background: #6cea90;}
@@ -565,6 +566,8 @@
                                                  <div class="category3">
                                                     <button onclick="location2();" class="btn btn-danger" style="background: #ff6028;height:100%; width: 100%; padding:0;">현재위치</button>
                                                 </div>
+                                        <div class="predict" id="predict" style="text-align: center; padding:0px; font-size:30px; color:white;">
+                                        </div>
 
 
                                           <div class="category">
@@ -754,7 +757,7 @@ var playGroundcounter = 0;
 var elementarySchoolcounter = 0;
 var kindergartencounter = 0;
 var cctvcounter =0;
-
+var predict=0;
 function counterinit(){
     schoolZonecounter = 0;
 constructioncounter =0;
@@ -883,6 +886,7 @@ function start(val){
     document.getElementById("myCheck").value = 0;
     val = sel.options[sel.selectedIndex].value;
     document.getElementById("analysis").style.display = "block";
+    document.getElementById("predict").style.display = "block";
     mouseUp(val);
     vector_layer.removeAllFeatures();
     routeLayer.removeFeatures(kmlForm);
@@ -898,6 +902,7 @@ function start(val){
     center_layer.removeAllFeatures();
     deletemarker();
     document.getElementById("analysis").style.display = "none";
+    document.getElementById("predict").style.display = "none";
   }
 }
 
@@ -1209,10 +1214,21 @@ var params= "feacture="+[policeOfficecounter,motelcounter,constructioncounter,cc
         url:"/predict",
         data:params,
         success: function(data) {
-                console.log(data)
+                predict = data;
             },
 
     });
+                if (predict=='"0"' | predict=="0"){
+                    document.getElementById("predict").innerHTML = "안전";
+                    document.getElementById("predict").style.backgroundColor = "#6cea90";
+                }else if (predict == '"1"' | predict== "1"){
+                     document.getElementById("predict").innerHTML = "주의";
+                    document.getElementById("predict").style.backgroundColor = "#F9FF05";
+                }else{
+                     document.getElementById("predict").innerHTML = "위험";
+                    document.getElementById("predict").style.backgroundColor = "#FF5F4A";
+
+                }
 
     }
 
@@ -1298,12 +1314,13 @@ function placesSearchCB1(data, status, pagination) {
 function placesSearchCB2(data, status, pagination) {
     if (status === daum.maps.services.Status.OK) {
 
+
          document.getElementById("second").style.display="none" ;
        search2_x = data[0]['x'];
        search2_y = data[0]['y'];
 
         checkBox = document.getElementById("myCheck");
-        document.getElementById("myCheck").checked = false;
+        document.getElementById("myCheck").value = 0;
         state= false;
         start(val);
 
@@ -1500,7 +1517,11 @@ $.ajax({
 		};
 		var circleFeature = new Tmap.Feature.Vector(circle, null, style_red); // 원 백터 생성
 		vector_layer.addFeatures([circleFeature]); // 원 백터 를 백터 레이어에 추가
+
+
+
         map.zoomToExtent(vector_layer.getDataExtent());
+
 	},error:function(request,status,error){
 		console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	}
