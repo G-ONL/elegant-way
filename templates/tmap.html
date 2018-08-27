@@ -21,7 +21,7 @@
         .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
-
+        .category1 {position:absolute;overflow:hidden;top:107px;left:45px;width:250px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
 
     </style>
 	</head>
@@ -581,6 +581,22 @@
                         </div>
                             </div>
 									<div class="panel-body">
+                                         <div class="category1" style="padding: 13px;">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <span style="font-size:15px;">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <span style="font-size:12px;">반경 :  </span>
+                                                    <select name="sel" id="sel" onchange="chageLangSelect()">
+                                                         <option value=550>0.5km</option>
+                                                         <option value=1050>1km</option>
+                                                         <option value=1550>1.5km</option>
+                                                         <option value=2050>2km</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                         </div>
                                           <div class="category">
                                         <ul>
                                             <li class="menu_selected_bad" id="schoolZone" onclick="changeMarker('schoolZone')">
@@ -731,7 +747,38 @@ var center_layer = new Tmap.Layer.Vector('Tmap center Layer'); // 백터 레이�
 map.addLayers([center_layer]); // 지도에 백터 레이어 추가
 map.setCenter(new Tmap.LonLat("126.986072", "37.570028").transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 
-document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp()};
+var sel = document.getElementById("sel");
+var val = sel.options[sel.selectedIndex].value;
+
+document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
+var state = true
+
+
+
+start(val)
+function chageLangSelect(){
+    sel = document.getElementById("sel");
+    val = sel.options[sel.selectedIndex].value;
+    
+    start(val);
+}
+
+function start(val){
+    var checkBox = document.getElementById("myCheck");
+  // Get the output text
+
+  if (checkBox.checked == true){
+    state = true;
+    val = sel.options[sel.selectedIndex].value;
+    mouseUp(val);
+  } else {
+    state = false;
+     center_layer.removeAllFeatures();
+        deletemarker();
+
+
+  }
+}
 
  function calculateDistance(lat1, lon1, lat2, lon2) {
      if (typeof(Number.prototype.toRad) === "undefined") {
@@ -750,11 +797,12 @@ document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mou
       return d;
     }
 
-function mouseUp() {
+function mouseUp(val) {
+    if (state == true){
     center_layer.removeAllFeatures();
     var center = map.getCenter();
     var center_temp = map.getCenter().transform("EPSG:3857","EPSG:4326");
-	var circle = new Tmap.Geometry.Circle(center.lon, center.lat, 550, {unit:"m"}); // 원 생성
+	var circle = new Tmap.Geometry.Circle(center.lon, center.lat, val, {unit:"m"}); // 원 생성
 		// 지도상에 그려질 스타일을 설정합니다
 	var style_red = {
 		fillColor:"#FF1234",
@@ -766,58 +814,8 @@ function mouseUp() {
 	};
     var circleFeature = new Tmap.Feature.Vector(circle, null, style_red); // 원 백터 생성
 	center_layer.addFeatures([circleFeature]); // 원 백터 를 백터 레이어에 추가
-
-	    schoolZonemarkerLayer.destroy();
-        schoolZonemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(schoolZonemarkerLayer);
-
-        constructionmarkerLayer.destroy();
-        constructionmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(constructionmarkerLayer);
-
-        childPedestrianAccidentmarkerLayer.destroy();
-        childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childPedestrianAccidentmarkerLayer);
-
-        fireStationmarkerLayer.destroy();
-        fireStationmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationmarkerLayer);
-
-        fireStationSafetyCentermarkerLayer.destroy();
-        fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationSafetyCentermarkerLayer);
-
-        policeOfficemarkerLayer.destroy();
-        policeOfficemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(policeOfficemarkerLayer);
-
-        roomSalonmarkerLayer.destroy();
-        roomSalonmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(roomSalonmarkerLayer);
-
-        childSafetyHousemarkerLayer.destroy();
-        childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childSafetyHousemarkerLayer);
-
-        motelmarkerLayer.destroy();
-        motelmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(motelmarkerLayer);
-
-        playGroundmarkerLayer.destroy();
-        playGroundmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(playGroundmarkerLayer);
-
-        elementarySchoolmarkerLayer.destroy();
-        elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(elementarySchoolmarkerLayer);
-
-        kindergartenmarkerLayer.destroy();
-        kindergartenmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(kindergartenmarkerLayer);
-
-        cctvmarkerLayer.destroy();
-        cctvmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(cctvmarkerLayer);
+     map.zoomToExtent(center_layer.getDataExtent());
+	    deletemarker();
 
 
 
@@ -827,7 +825,7 @@ function mouseUp() {
             temp_lat = mark10[i]['lat']
             temp_lon = mark10[i]['lng']
             var d = calculateDistance(temp_lat, temp_lon, center_temp.lat, center_temp.lon);
-            if ( 0.5 >  d ){
+            if ( val * 0.001 >  d ){
                 positions.push({
                     category: mark10[i]['title'],
                     title: mark10[i]['infobox'],
@@ -839,14 +837,14 @@ function mouseUp() {
         };
 
 
-
-		var size = new Tmap.Size(12, 20);//아이콘 크기
+		var size = new Tmap.Size(17, 17);//아이콘 크기
 		var offset = new Tmap.Pixel(-(size.w / 2), -(size.h));//아이콘 중심점
 
 		for (var i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성
 			var icon = new Tmap.Icon(positions[i].icon,size, offset);//아이콘 설정
 			var lonlat = positions[i].lonlat;//좌표값
 			marker = new Tmap.Marker(lonlat, icon);//마커 생성
+
             if (positions[i].category == "schoolZone"){
                 schoolZonemarkerLayer.addMarker(marker);
             }
@@ -892,12 +890,16 @@ function mouseUp() {
 			 //마커 레이어에 마커 추가
 		}
 
+    }
 }
+
+
 
 
 $("#map_button1").on("click",function() {//클릭되면 하고싶은것!
     var text = $("#search_map1").val()
     document.getElementById("second").style.display = "block";
+
 
 
 // 2. API 사용요청
@@ -947,62 +949,18 @@ $.ajax({
         pointLayer.removeAllFeatures();
         vector_layer.removeAllFeatures();
 
-        schoolZonemarkerLayer.destroy();
-        schoolZonemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(schoolZonemarkerLayer);
-
-        constructionmarkerLayer.destroy();
-        constructionmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(constructionmarkerLayer);
-
-        childPedestrianAccidentmarkerLayer.destroy();
-        childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childPedestrianAccidentmarkerLayer);
-
-        fireStationmarkerLayer.destroy();
-        fireStationmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationmarkerLayer);
-
-        fireStationSafetyCentermarkerLayer.destroy();
-        fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(fireStationSafetyCentermarkerLayer);
-
-        policeOfficemarkerLayer.destroy();
-        policeOfficemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(policeOfficemarkerLayer);
-
-        roomSalonmarkerLayer.destroy();
-        roomSalonmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(roomSalonmarkerLayer);
-
-        childSafetyHousemarkerLayer.destroy();
-        childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(childSafetyHousemarkerLayer);
-
-        motelmarkerLayer.destroy();
-        motelmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(motelmarkerLayer);
-
-        playGroundmarkerLayer.destroy();
-        playGroundmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(playGroundmarkerLayer);
-
-        elementarySchoolmarkerLayer.destroy();
-        elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(elementarySchoolmarkerLayer);
-
-        kindergartenmarkerLayer.destroy();
-        kindergartenmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(kindergartenmarkerLayer);
-
-        cctvmarkerLayer.destroy();
-        cctvmarkerLayer = new Tmap.Layer.Markers();
-        map.addLayer(cctvmarkerLayer);
+        deletemarker();
 
         markerStartLayer.removeMarker(marker_s1);
 		markerEndLayer.removeMarker(marker_s2);
 		markerStartLayer = new Tmap.Layer.Markers("start");//마커 레이어 생성
 		map.addLayer(markerStartLayer);//map에 마커 레이어 추가
+
+
+        checkBox = document.getElementById("myCheck");
+        document.getElementById("myCheck").checked = false;
+        state= false;
+
 
 	  	var size = new Tmap.Size(24, 38);//아이콘 크기 설정
 		var offset = new Tmap.Pixel(-(size.w / 2), -size.h);//아이콘 중심점 설정
@@ -1417,32 +1375,33 @@ $.ajax({
 		kmlForm = new Tmap.Format.KML().read(prtcl);
 		routeLayer.addFeatures(kmlForm);
 
-		map.zoomToExtent(routeLayer.getDataExtent());
+
         startX *= 1;
         startY *= 1;
         endX *=1;
         endY *=1;
 		s3_lat = (startY + endY)/2;
         s3_lon = (startX + endX)/2;
-        s3_pix = s2_pix.distanceTo(s1_pix); //단위 m
+        s3_pix = (s2_pix.distanceTo(s1_pix))/2; //단위 m
         var mark10 = {{ mark | tojson | safe }};
-        var s3_pow =  Math.pow(s1_lat-s3_lat,2) + Math.pow(s1_lon-s3_lon,2);
 		var coord = new Tmap.LonLat(s3_lon, s3_lat).transform("EPSG:4326", "EPSG:3857");
-        var circle = new Tmap.Geometry.Circle(coord.lon, coord.lat, s3_pix/2 + 100); // 원 생성
+        var circle = new Tmap.Geometry.Circle(coord.lon, coord.lat, s3_pix + 100); // 원 생성
         var positions = new Array();
 
         for(var i=0 ; i< mark10.length; i++ ){
             temp_lat = mark10[i]['lat']
             temp_lon = mark10[i]['lng']
-
-            if ( s3_pow > Math.pow(temp_lat-s3_lat,2) + Math.pow(temp_lon-s3_lon,2)){
+            var d = calculateDistance(temp_lat, temp_lon,s3_lat, s3_lon);
+            if ( s3_pix * 0.001 >d + 0.08  ){
+                    console.log(s3_pix)
+                    console.log(d)
                 positions.push({
                     category: mark10[i]['title'],
                     title: mark10[i]['infobox'],
                     lonlat: new Tmap.LonLat(temp_lon, temp_lat).transform("EPSG:4326", "EPSG:3857"),//좌표 지정
                     icon: mark10[i]['icon'],
                 });
-                console.log('성공');
+
             };
         };
 
@@ -1510,9 +1469,8 @@ $.ajax({
 			pointRadius: 60
 		};
 		var circleFeature = new Tmap.Feature.Vector(circle, null, style_red); // 원 백터 생성
-        console.log([circleFeature])
 		vector_layer.addFeatures([circleFeature]); // 원 백터 를 백터 레이어에 추가
-        console.log(vector_layer)
+        map.zoomToExtent(vector_layer.getDataExtent());
 	},error:function(request,status,error){
 		console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	}
@@ -1647,7 +1605,59 @@ $.ajax({
                return false
            }
         }
+function deletemarker(){
+    schoolZonemarkerLayer.destroy();
+        schoolZonemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(schoolZonemarkerLayer);
 
+        constructionmarkerLayer.destroy();
+        constructionmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(constructionmarkerLayer);
+
+        childPedestrianAccidentmarkerLayer.destroy();
+        childPedestrianAccidentmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(childPedestrianAccidentmarkerLayer);
+
+        fireStationmarkerLayer.destroy();
+        fireStationmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(fireStationmarkerLayer);
+
+        fireStationSafetyCentermarkerLayer.destroy();
+        fireStationSafetyCentermarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(fireStationSafetyCentermarkerLayer);
+
+        policeOfficemarkerLayer.destroy();
+        policeOfficemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(policeOfficemarkerLayer);
+
+        roomSalonmarkerLayer.destroy();
+        roomSalonmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(roomSalonmarkerLayer);
+
+        childSafetyHousemarkerLayer.destroy();
+        childSafetyHousemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(childSafetyHousemarkerLayer);
+
+        motelmarkerLayer.destroy();
+        motelmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(motelmarkerLayer);
+
+        playGroundmarkerLayer.destroy();
+        playGroundmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(playGroundmarkerLayer);
+
+        elementarySchoolmarkerLayer.destroy();
+        elementarySchoolmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(elementarySchoolmarkerLayer);
+
+        kindergartenmarkerLayer.destroy();
+        kindergartenmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(kindergartenmarkerLayer);
+
+        cctvmarkerLayer.destroy();
+        cctvmarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(cctvmarkerLayer);
+    }
 
 </script>
      <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>

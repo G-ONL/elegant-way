@@ -47,10 +47,10 @@ def map():
         appendToMarkers(mark, m)
 
     # 어린이안전구역
-    for i in read_collection('childSafetyZone'):
-        m = {'title': 'childSafetyZone', 'infobox': i['대상시설명'], 'lat': i['위도'], 'lng': i['경도'],
-             'icon': '/static/icon/childSafetyZone.png'}
-        appendToMarkers(mark, m)
+    # for i in read_collection('childSafetyZone'):
+    #     m = {'title': 'childSafetyZone', 'infobox': i['대상시설명'], 'lat': i['위도'], 'lng': i['경도'],
+    #          'icon': '/static/icon/childSafetyZone.png'}
+    #     appendToMarkers(mark, m)
 
     # 소방서
     for i in read_collection('fireStation'):
