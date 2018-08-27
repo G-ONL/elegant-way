@@ -21,9 +21,11 @@
         .category .menu_selected_bad {background: #FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
-        .category1 {position:absolute;overflow:hidden;top:124px;left:58px;width:300px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
+        .category1 {position:absolute;overflow:hidden;top:124px;left:58px;width:400px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
         .badbad {background: #FF5F4A;}
+        .badbad img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
         .goodgood {background: #6cea90;}
+        .goodgood img{width:40px;height:40px;padding-top:0px;padding-left:0px;}
     </style>
 
 	</head>
@@ -547,17 +549,20 @@
 									<div class="panel-body">
                                          <div class="category1" style="padding: 13px;">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <span style="font-size:15px;">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <span style="font-size:12px;">반경 :  </span>
+                                                <div class="col-md-4">
+                                                    <span style="font-size:15px;">반경 :  </span>
                                                     <select name="sel" id="sel" onchange="chageLangSelect()">
                                                          <option value=550>0.5km</option>
                                                          <option value=1050>1km</option>
                                                          <option value=1550>1.5km</option>
                                                          <option value=2050>2km</option>
                                                     </select>
+                                                </div>
+                                                <div class="col-md-4" style="text-align: center;">
+                                                    <button onclick="location2();" class="btn btn-danger" style="height:25px; padding:0;">현재위치</button>
                                                 </div>
                                             </div>
                                          </div>
@@ -617,7 +622,7 @@
                                                     <div>
                                                         <form onsubmit="searchPlaces(); return false;">
                                                             검색 : <input type="text" value="안암" id="keyword" size="30">
-                                                            <button type="submit">검색하기</button>
+                                                            <button class="btn btn-success" type="submit">검색하기</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -628,7 +633,7 @@
                                                     <div>
                                                         <form onsubmit="searchPlaces1(); return false;">
                                                             도착지점 : <input type="text" value="" id="keyword1" size="30">
-                                                            <button type="submit">검색하기</button>
+                                                            <button class="btn btn-success" type="submit">검색하기</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -637,23 +642,23 @@
                                      </div>
                                          <div id="map_div">
                                          </div>
-
-                                    <table id="analysis" style="width:100%">
+                                        <div style="display:block; margin-left: auto; margin-right: auto;">
+                                    <table id="analysis" style="width:100%;margin-left: auto;  float: right; margin-right: auto;">
                                       <tr>
-                                        <th class="badbad">스쿨존 교통사고 다발구역</th>
-                                        <th class="badbad">공사현장</th>
-                                        <th class="badbad">모텔</th>
-                                        <th class="badbad">어린이 보행자 사고 다발구역</th>
-                                        <th class="badbad">유흥주점</th>
-                                        <th class="goodgood">어린이 안전구역</th>
-                                        <th class="goodgood">소방서</th>
-                                        <th class="goodgood">119안전센터</th>
-                                        <th class="goodgood">초등학교</th>
-                                        <th class="goodgood">어린이 놀이터</th>
-                                        <th class="goodgood">경찰서</th>
-                                        <th class="goodgood">유치원</th>
-                                        <th class="goodgood">아동안전지킴이집</th>
-                                        <th class="goodgood">CCTV</th>
+                                        <th class="badbad"><img src="static/icon/schoolZone.png" alt="스쿨존 교통사고 다발지역" title='스쿨존 어린이 교통사고 다발지역'/></th>
+                                        <th class="badbad"><img src="static/icon/construction.png" alt="공사현장" title='공사현장'/></th>
+                                        <th class="badbad"><img src="static/icon/motel.png"  alt="모텔" title='모텔'/></th>
+                                        <th class="badbad"><img src="static/icon/childPedestrianAccident.png"  alt="어린이 보행자 사고다발구역" title='어린이 보행자 사고다발구역'/></th>
+                                        <th class="badbad"><img src="static/icon/roomSalon.png"  alt="유흥주점" title='유흥주점'/></th>
+                                        <th class="goodgood"><img src="static/icon/childSafetyZone.png"  alt="어린이 안전 구역" title='어린이 안전구역'/></th>
+                                        <th class="goodgood"><img src="static/icon/fireStation.png"  alt="소방서" title='소방서' /></th>
+                                        <th class="goodgood"><img src="static/icon/fireStationSafetyCenter.png"  alt="119 안전센터" title='119 안전센터'/></th>
+                                        <th class="goodgood"><img src="static/icon/elementarySchool.png"  alt="초등학교" title='초등학교'/></th>
+                                        <th class="goodgood"><img src="static/icon/playGround.png"  alt="어린이 놀이터" title='어린이 놀이터'/></th>
+                                        <th class="goodgood"><img src="static/icon/policeOffice.png"  alt="경찰서" title='경찰서'/></th>
+                                        <th class="goodgood"> <img src="static/icon/kindergarten.png"  alt="유치원" title='유치원'/></th>
+                                        <th class="goodgood"><img src="static/icon/childSafetyHouse.png"  alt="아동 안전 지킴이 집" title='아동 안전 지킴이 집'/></th>
+                                        <th class="goodgood"><img src="static/icon/CCTV.png"  alt="CCTV" title='CCTV'/></th>
                                       </tr>
                                       <tr>
                                         <td></td>
@@ -672,6 +677,7 @@
                                         <td></td>
                                       </tr>
                                     </table>
+                                            </div>
 								</div>
 							</div>
 						</div>
@@ -684,13 +690,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
-							<p>2018 &copy; Admintres. Pampered by Hencework</p>
+							<p>2018 &copy; 우아한길</p>
 						</div>
 						<div class="col-sm-6 text-right">
-							<p>Follow Us</p>
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-google-plus"></i></a>
+
 						</div>
 					</div>
 				</div>
@@ -733,6 +736,7 @@
         <script src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=71255fea-c093-4b42-97bf-ac34d162bc0e"></script>
      <script>
 var marker_s1, marker_s2,markerStartLayer, markerEndLayer,s1_lon,s1_lat,s1_pix,s2_lon,s2_lat,s2_pix, kmlForm, s3_lon, s3_lat,s3_pix,search1_y,search1_x,search2_x,search2_y;
+var my_lat, my_lon;
 var pointFeature= new Array();
 var markerCluster;
 var schoolZonecounter = 0;
@@ -767,14 +771,18 @@ roomSaloncounter = 0;
  cctvcounter =0;
 }
 
-	// 1. 지도 띄우기
-	// map 생성
-	// Tmap.map을 이용하여, 지도가 들어갈 div, 넓이, 높이를 설정합니다.
-	map = new Tmap.Map({
+map = new Tmap.Map({
 		div : 'map_div',// map을 표시해줄 div
 		width : "100%",// map의 width 설정
 		height : "540px",// map의 height 설정
 	});
+
+
+
+	// 1. 지도 띄우기
+	// map 생성
+	// Tmap.map을 이용하여, 지도가 들어갈 div, 넓이, 높이를 설정합니다.
+
 var mark10 = {{ mark | tojson | safe }};
 var routeLayer = new Tmap.Layer.Vector("route");
 var pointLayer = new Tmap.Layer.Vector("point");
@@ -802,9 +810,20 @@ map.addLayer(markerStartLayer);
 map.addLayer(markerEndLayer);
 var center_layer = new Tmap.Layer.Vector('Tmap center Layer'); // 백터 레이어 생성
 map.addLayers([center_layer]); // 지도에 백터 레이어 추가
-map.setCenter(new Tmap.LonLat("126.986072", "37.570028").transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 
-var sel = document.getElementById("sel");
+
+function onGeolocationSuccess(position) { // 좌표 출력
+    my_lat = position.coords.latitude;
+    my_lon = position.coords.longitude;
+
+    var params= "my_lat="+my_lat+"&my_lon="+my_lon;
+    $.ajax({
+        type:"GET",
+        url:"/location",
+        data:params,
+        success: function(data) {
+            map.setCenter(new Tmap.LonLat(my_lon, my_lat).transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
+         var sel = document.getElementById("sel");
 var val = sel.options[sel.selectedIndex].value;
 
 document.getElementById("Tmap_Map_7_Tmap_Container").onmouseup = function() {mouseUp(val)};
@@ -813,6 +832,23 @@ var state = true
 
 
 start(val)
+
+        },
+    });
+
+}
+function onGeolocationFail(error) { // 에러 출력
+    console.log("Error Code: " + error.code + ", Error Description: " + error.message);
+}
+location2();
+function location2() {
+    if (navigator.geolocation) { // 정확한 위치 사용 // 캐시 사용 안함 // timeout 3초 (3000ms)
+        var positionOptions = {enableHighAccuracy: true, maximumAge: 0, timeout: 3000};
+        navigator.geolocation.getCurrentPosition(onGeolocationSuccess, onGeolocationFail, positionOptions);
+    }
+}
+
+
 function chageLangSelect(){
     sel = document.getElementById("sel");
     val = sel.options[sel.selectedIndex].value;

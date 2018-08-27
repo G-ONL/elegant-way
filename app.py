@@ -38,6 +38,16 @@ def predict():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
+@app.route('/location',methods=['GET'])
+def location():
+    my_lon = request.args.get('my_lon')
+    my_lat = request.args.get('my_lat')
+    resp = make_response(json.dumps(my_lon))
+    resp.status_code = 200
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
+
+
 #안에 정보가 하나라도 없으면 마커에 넣지 않는다
 def appendToMarkers(markerArray, marker):
     if marker['title'] and marker['infobox'] and marker['lat'] and marker['lng'] and marker['icon']:
