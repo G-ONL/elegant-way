@@ -111,6 +111,12 @@ def map():
              'icon': '/static/icon/CCTV.png'}
         appendToMarkers(mark, m)
 
+    # 어린이보호시설
+    # for i in read_collection(''):
+    #     m = {'title': 'cctv', 'infobox': i['관리기관명'], 'lat': i['위도'], 'lng': i['경도'],
+    #          'icon': '/static/icon/CCTV.png' }
+    #     appendToMarkers(mark, m)
+
     return render_template('tmap.html', mark=mark)
 
 
