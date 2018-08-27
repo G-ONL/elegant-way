@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df2172ce-3594-4ba0-966c-e02a237e1ee0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/tmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tmap.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,9 +31,9 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="4" />
-          <entry key="html" value="18" />
+          <entry key="html" value="19" />
           <entry key="jpg" value="4" />
-          <entry key="js" value="1" />
+          <entry key="js" value="4" />
           <entry key="png" value="13" />
           <entry key="py" value="3" />
           <entry key="scss" value="3" />
@@ -39,9 +41,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="18" />
+          <entry key="HTML" value="19" />
           <entry key="Image" value="17" />
-          <entry key="JavaScript" value="1" />
+          <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="Python" value="3" />
           <entry key="SCSS" value="3" />
@@ -49,15 +51,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="9753" />
-          <entry key="py" value="1495" />
+          <entry key="html" value="10146" />
+          <entry key="py" value="1539" />
           <entry key="scss" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="9753" />
-          <entry key="Python" value="1495" />
+          <entry key="HTML" value="10146" />
+          <entry key="Python" value="1539" />
           <entry key="SCSS" value="12" />
         </counts>
       </usages-collector>
@@ -71,11 +73,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+            <state relative-caret-position="279">
+              <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="152" selection-end-column="11" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
-                <marker date="1535392393128" expanded="true" signature="1227:1452" ph="..." />
+                <marker date="1535396981619" expanded="true" signature="1227:1452" ph="..." />
+                <marker date="1535396981619" expanded="true" signature="5295:5340" ph="..." />
               </folding>
             </state>
           </provider>
@@ -84,12 +87,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/tmap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="831" column="91" selection-start-line="831" selection-start-column="91" selection-end-line="831" selection-end-column="91" />
+            <state relative-caret-position="143">
+              <caret line="551" column="69" selection-start-line="551" selection-start-column="69" selection-end-line="551" selection-end-column="69" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,29 +97,6 @@
                 <element signature="n#style#0;n#tr#1;n#table#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/bootstrap-ui.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-390" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/src/scss/style.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1360">
-              <caret line="8168" column="21" selection-start-line="8168" selection-start-column="21" selection-end-line="8168" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/buttons.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1131" />
           </provider>
         </entry>
       </file>
@@ -135,11 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>{{</find>
-      <find>markerLa</find>
-      <find>vector_layer</find>
-      <find>construction</find>
-      <find>cctv</find>
       <find>projection</find>
       <find>map.zoomToExtent(routeLayer.getDataExtent());</find>
       <find>count</find>
@@ -165,6 +137,11 @@
       <find>2018</find>
       <find>changeMarker</find>
       <find>schoolzone</find>
+      <find>url</find>
+      <find>chart</find>
+      <find>ct_chart_2</find>
+      <find>getElem</find>
+      <find>chart_2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,10 +154,10 @@
         <option value="$PROJECT_DIR$/templates/chats.html" />
         <option value="$PROJECT_DIR$/templates/daum.html" />
         <option value="$PROJECT_DIR$/templates/weather.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/google-map.html" />
         <option value="$PROJECT_DIR$/static/src/scss/style.scss" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/tmap.html" />
       </list>
     </option>
@@ -247,87 +224,6 @@
               <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
               <item name="untitled5" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="icon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="big" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="country" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="heading-bg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="modals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="range" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="sweetalert" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="userimgs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled5" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="untitled5" type="b2602c69:ProjectViewProjectNode" />
@@ -410,7 +306,7 @@
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49868765" visible="true" weight="0.17998385" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49868765" visible="true" weight="0.24374495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5013123" side_tool="true" weight="0.2534302" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
@@ -457,13 +353,6 @@
     <entry file="file://$PROJECT_DIR$/templates/google-map.html" />
     <entry file="file://$PROJECT_DIR$/static/dist/js/db.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="1815" column="60" selection-start-line="1815" selection-start-column="60" selection-end-line="1815" selection-end-column="60" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/icon/logo.png">
       <provider selected="true" editor-type-id="images" />
@@ -527,35 +416,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/buttons.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1131" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="41" column="13" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#63#0" expanded="true" />
-            <marker date="1535392393128" expanded="true" signature="1227:1452" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/bootstrap-ui.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-390" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/vendors/chart.js/Chart.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/vendors/bower_components/chartist/dist/chartist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="75" column="27" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14845">
+          <caret line="1788" column="60" selection-start-line="1788" selection-start-column="60" selection-end-line="1788" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#77474#77480#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/dist/js/echart-data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="192" column="16" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="192" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="152" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+            <marker date="1535396981619" expanded="true" signature="1227:1452" ph="..." />
+            <marker date="1535396981619" expanded="true" signature="5295:5340" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/buttons.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1131" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/tmap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="831" column="91" selection-start-line="831" selection-start-column="91" selection-end-line="831" selection-end-column="91" />
+        <state relative-caret-position="143">
+          <caret line="551" column="69" selection-start-line="551" selection-start-column="69" selection-end-line="551" selection-end-column="69" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

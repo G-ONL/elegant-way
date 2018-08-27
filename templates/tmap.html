@@ -547,13 +547,13 @@
 
 
 									<div class="panel-body">
-                                         <div class="category1" style="padding: 13px;">
+                                         <div class="category1">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <span style="font-size:15px;">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
+                                                    <span class="panel-title txt-dark">중심원 :  </span><input type="checkbox" id="myCheck" onclick="start()"  checked >
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <span style="font-size:15px;">반경 :  </span>
+                                                    <span class="panel-title txt-dark">반경 :  </span>
                                                     <select name="sel" id="sel" onchange="chageLangSelect()">
                                                          <option value=550>0.5km</option>
                                                          <option value=1050>1km</option>
@@ -621,8 +621,8 @@
                                                 <div class="option">
                                                     <div>
                                                         <form onsubmit="searchPlaces(); return false;">
-                                                            검색 : <input type="text" value="안암" id="keyword" size="30">
-                                                            <button class="btn btn-success" type="submit">검색하기</button>
+                                                            <input type="text" value="안암" id="keyword" size="30">
+                                                            <button class="btn btn-success" type="submit">검색</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -632,7 +632,7 @@
                                                 <div class="option">
                                                     <div>
                                                         <form onsubmit="searchPlaces1(); return false;">
-                                                            도착지점 : <input type="text" value="" id="keyword1" size="30">
+                                                            <span class="panel-title txt-dark">도착지점 : </span><input type="text" value="" id="keyword1" size="30">
                                                             <button class="btn btn-success" type="submit">검색하기</button>
                                                         </form>
                                                     </div>
