@@ -1,7 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request,make_response
 from pymongo import MongoClient
-
-
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn import preprocessing
+import json
 app = Flask(__name__)
 
 #db읽기
@@ -13,6 +15,28 @@ def read_collection(name):
     client.close()
     return data
 
+
+stat = pd.DataFrame(list((read_collection('statistics'))))
+stat.drop(columns="_id",inplace=True)
+
+lab_enc = preprocessing.LabelEncoder()
+stat.iloc[:, -1] = lab_enc.fit_transform(stat.iloc[:,-1]) #자료형 바꿔주기
+logi = LogisticRegression()
+logi.fit(stat.iloc[:,:-1],stat.iloc[:,-1])
+
+@app.route('/predict',methods=['GET'])
+def predict():
+    feacture = request.args.get('feacture')
+    area = request.args.get('area')
+    area = (float(area) / 1000000)
+    feacture= feacture.split(',')
+    feacture = [int(i)/area for i in feacture]
+    result = logi.predict([feacture])
+    result = str(result[0])
+    resp = make_response(json.dumps(result))
+    resp.status_code = 200
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 #안에 정보가 하나라도 없으면 마커에 넣지 않는다
 def appendToMarkers(markerArray, marker):
@@ -47,10 +71,10 @@ def map():
         appendToMarkers(mark, m)
 
     # 어린이안전구역
-    # for i in read_collection('childSafetyZone'):
-    #     m = {'title': 'childSafetyZone', 'infobox': i['대상시설명'], 'lat': i['위도'], 'lng': i['경도'],
-    #          'icon': '/static/icon/childSafetyZone.png'}
-    #     appendToMarkers(mark, m)
+    for i in read_collection('childSafetyZone'):
+        m = {'title': 'childSafetyZone', 'infobox': i['대상시설명'], 'lat': i['위도'], 'lng': i['경도'],
+             'icon': '/static/icon/childSafetyZone.png'}
+        appendToMarkers(mark, m)
 
     # 소방서
     for i in read_collection('fireStation'):
@@ -110,12 +134,6 @@ def map():
         m = {'title': 'cctv', 'infobox': i['관리기관명'], 'lat': i['위도'], 'lng': i['경도'],
              'icon': '/static/icon/CCTV.png'}
         appendToMarkers(mark, m)
-
-    # 어린이보호시설
-    # for i in read_collection(''):
-    #     m = {'title': 'cctv', 'infobox': i['관리기관명'], 'lat': i['위도'], 'lng': i['경도'],
-    #          'icon': '/static/icon/CCTV.png' }
-    #     appendToMarkers(mark, m)
 
     return render_template('tmap.html', mark=mark)
 

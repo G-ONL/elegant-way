@@ -22,7 +22,8 @@
         .category li{list-style:none;float:left;width:40px;height:39px;padding-top:1px;padding-left:5px;cursor:pointer;}
         .category img{list-style:none;float:left;width:26px;height:26px;padding-top:0px;padding-left:0px;}
         .category1 {position:absolute;overflow:hidden;top:107px;left:45px;width:250px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:left;background-color:#f9ff05;}
-
+        .badbad {background: #FF5F4A;}
+        .goodgood {background: #6cea90;}
     </style>
 	</head>
 	<body>
@@ -646,6 +647,41 @@
                                          <div id="map_div">
                                          </div>
 									</div>
+
+                                    <table id="analysis" style="width:100%">
+                                      <tr>
+                                        <th class="badbad">스쿨존 교통사고 다발구역</th>
+                                        <th class="badbad">공사현장</th>
+                                        <th class="badbad">모텔</th>
+                                        <th class="badbad">어린이 보행자 사고 다발구역</th>
+                                        <th class="badbad">유흥주점</th>
+                                        <th class="goodgood">어린이 안전구역</th>
+                                        <th class="goodgood">소방서</th>
+                                        <th class="goodgood">119안전센터</th>
+                                        <th class="goodgood">초등학교</th>
+                                        <th class="goodgood">어린이 놀이터</th>
+                                        <th class="goodgood">경찰서</th>
+                                        <th class="goodgood">유치원</th>
+                                        <th class="goodgood">아동안전지킴이집</th>
+                                        <th class="goodgood">CCTV</th>
+                                      </tr>
+                                      <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                      </tr>
+                                    </table>
 								</div>
 							</div>
 						</div>
@@ -709,6 +745,37 @@
 var marker_s1, marker_s2,markerStartLayer, markerEndLayer,s1_lon,s1_lat,s1_pix,s2_lon,s2_lat,s2_pix, kmlForm, s3_lon, s3_lat,s3_pix;
 var pointFeature= new Array();
 var markerCluster;
+var schoolZonecounter = 0;
+var constructioncounter =0;
+var childPedestrianAccidentcounter =0;
+var childSafetyZonecounter = 0;
+var fireStationcounter = 0;
+var fireStationSafetyCentercounter = 0;
+var policeOfficecounter = 0;
+var roomSaloncounter = 0;
+var childSafetyHousecounter =0;
+var motelcounter = 0;
+var playGroundcounter = 0;
+var elementarySchoolcounter = 0;
+var kindergartencounter = 0;
+var cctvcounter =0;
+
+function counterinit(){
+    schoolZonecounter = 0;
+constructioncounter =0;
+childPedestrianAccidentcounter =0;
+childSafetyZonecounter = 0;
+fireStationcounter = 0;
+fireStationSafetyCentercounter = 0;
+ policeOfficecounter = 0;
+roomSaloncounter = 0;
+ childSafetyHousecounter =0;
+ motelcounter = 0;
+ playGroundcounter = 0;
+ elementarySchoolcounter = 0;
+ kindergartencounter = 0;
+ cctvcounter =0;
+}
 
 	// 1. 지도 띄우기
 	// map 생성
@@ -759,7 +826,7 @@ start(val)
 function chageLangSelect(){
     sel = document.getElementById("sel");
     val = sel.options[sel.selectedIndex].value;
-    
+
     start(val);
 }
 
@@ -770,13 +837,19 @@ function start(val){
   if (checkBox.checked == true){
     state = true;
     val = sel.options[sel.selectedIndex].value;
+    document.getElementById("analysis").style.display = "block";
     mouseUp(val);
+    vector_layer.removeAllFeatures();
+    routeLayer.removeFeatures(kmlForm);
+    pointLayer.removeAllFeatures();
+    vector_layer.removeAllFeatures();
+    markerStartLayer.removeMarker(marker_s1);
+	markerEndLayer.removeMarker(marker_s2);
   } else {
     state = false;
-     center_layer.removeAllFeatures();
-        deletemarker();
-
-
+    center_layer.removeAllFeatures();
+    deletemarker();
+    document.getElementById("analysis").style.display = "none";
   }
 }
 
@@ -839,7 +912,7 @@ function mouseUp(val) {
 
 		var size = new Tmap.Size(17, 17);//아이콘 크기
 		var offset = new Tmap.Pixel(-(size.w / 2), -(size.h));//아이콘 중심점
-
+         counterinit();
 		for (var i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성
 			var icon = new Tmap.Icon(positions[i].icon,size, offset);//아이콘 설정
 			var lonlat = positions[i].lonlat;//좌표값
@@ -847,48 +920,65 @@ function mouseUp(val) {
 
             if (positions[i].category == "schoolZone"){
                 schoolZonemarkerLayer.addMarker(marker);
+                schoolZonecounter++;
             }
             else if (positions[i].category == "construction"){
                 constructionmarkerLayer.addMarker(marker);
+                constructioncounter++;
             }
             else if (positions[i].category == "childPedestrianAccident"){
                 childPedestrianAccidentmarkerLayer.addMarker(marker);
+                childPedestrianAccidentcounter++;
             }
             else if (positions[i].category == "childSafetyZone"){
                 childSafetyZonemarkerLayer.addMarker(marker);
+                childSafetyZonecounter++;
             }
             else if (positions[i].category == "fireStation"){
                 fireStationmarkerLayer.addMarker(marker);
+                fireStationcounter++;
             }
             else if (positions[i].category == "fireStationSafetyCenter"){
                 fireStationSafetyCentermarkerLayer.addMarker(marker);
+                fireStationSafetyCentercounter++;
             }
             else if (positions[i].category == "policeOffice"){
                 policeOfficemarkerLayer.addMarker(marker);
+                policeOfficecounter++;
             }
             else if (positions[i].category == "roomSalon"){
                 roomSalonmarkerLayer.addMarker(marker);
+                roomSaloncounter++;
             }
             else if (positions[i].category == "childSafetyHouse"){
                 childSafetyHousemarkerLayer.addMarker(marker);
+                childSafetyHousecounter++;
             }
              else if (positions[i].category == "motel"){
                 motelmarkerLayer.addMarker(marker);
+                motelcounter++;
             }
              else if (positions[i].category == "playGround"){
                 playGroundmarkerLayer.addMarker(marker);
+                playGroundcounter++;
             }
              else if (positions[i].category == "elementarySchool"){
                 elementarySchoolmarkerLayer.addMarker(marker);
+                elementarySchoolcounter++;
             }
              else if (positions[i].category == "kindergarten"){
                 kindergartenmarkerLayer.addMarker(marker);
+                kindergartencounter++;
             }
              else if (positions[i].category == "cctv"){
                 cctvmarkerLayer.addMarker(marker);
+                cctvcounter++;
+
             }
 			 //마커 레이어에 마커 추가
 		}
+		 var area = val * val * 3.14;
+		countfeacture(area);
 
     }
 }
@@ -899,7 +989,6 @@ function mouseUp(val) {
 $("#map_button1").on("click",function() {//클릭되면 하고싶은것!
     var text = $("#search_map1").val()
     document.getElementById("second").style.display = "block";
-
 
 
 // 2. API 사용요청
@@ -917,7 +1006,9 @@ $.ajax({
 	//데이터 로드가 성공적으로 완료되었을 때 발생하는 함수입니다.
 	success:function(response){
 		prtcl = response;
-
+        checkBox = document.getElementById("myCheck");
+        document.getElementById("myCheck").checked = true;
+        state= true;
 		// 3. 마커 찍기
 		var prtclString = new XMLSerializer().serializeToString(prtcl);//xml to String
 		xmlDoc = $.parseXML( prtclString ),
@@ -957,11 +1048,6 @@ $.ajax({
 		map.addLayer(markerStartLayer);//map에 마커 레이어 추가
 
 
-        checkBox = document.getElementById("myCheck");
-        document.getElementById("myCheck").checked = false;
-        state= false;
-
-
 	  	var size = new Tmap.Size(24, 38);//아이콘 크기 설정
 		var offset = new Tmap.Pixel(-(size.w / 2), -size.h);//아이콘 중심점 설정
 		var icon = new Tmap.IconHtml("<img src='http://tmapapis.sktelecom.com/upload/tmap/marker/pin_r_m_s.png' />", size, offset);//마커 아이콘 설정
@@ -970,6 +1056,7 @@ $.ajax({
         s1_pix = new Tmap.Geometry.Point(lon, lat).transform("EPSG:4326", "EPSG:3857");
 		map.setCenter(new Tmap.LonLat(lon, lat).transform("EPSG:4326", "EPSG:3857"), 15);//설정한 좌표를 "EPSG:3857"로 좌표변환한 좌표값으로 즁심점을 설정합니다.
 
+        mouseUp(val);
 		//검색 결과 표출
 		var matchFlag, newMatchFlag;
 	  	//검색 결과 주소를 담을 변수
@@ -1127,7 +1214,10 @@ $.ajax({
 	//데이터 로드가 성공적으로 완료되었을 때 발생하는 함수입니다.
 	success:function(response){
 		prtcl = response;
-
+        checkBox = document.getElementById("myCheck");
+        document.getElementById("myCheck").checked = false;
+        state= false;
+        start(val);
 		// 3. 마커 찍기
 		var prtclString = new XMLSerializer().serializeToString(prtcl);//xml to String
 		xmlDoc = $.parseXML( prtclString ),
@@ -1393,8 +1483,7 @@ $.ajax({
             temp_lon = mark10[i]['lng']
             var d = calculateDistance(temp_lat, temp_lon,s3_lat, s3_lon);
             if ( s3_pix * 0.001 >d + 0.08  ){
-                    console.log(s3_pix)
-                    console.log(d)
+
                 positions.push({
                     category: mark10[i]['title'],
                     title: mark10[i]['infobox'],
@@ -1409,55 +1498,73 @@ $.ajax({
 
 		var size = new Tmap.Size(12, 20);//아이콘 크기
 		var offset = new Tmap.Pixel(-(size.w / 2), -(size.h));//아이콘 중심점
-
+        counterinit();
 		for (var i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성
 			var icon = new Tmap.Icon(positions[i].icon,size, offset);//아이콘 설정
 			var lonlat = positions[i].lonlat;//좌표값
 			marker = new Tmap.Marker(lonlat, icon);//마커 생성
+
             if (positions[i].category == "schoolZone"){
                 schoolZonemarkerLayer.addMarker(marker);
+                schoolZonecounter++;
             }
             else if (positions[i].category == "construction"){
                 constructionmarkerLayer.addMarker(marker);
+                constructioncounter++;
             }
             else if (positions[i].category == "childPedestrianAccident"){
                 childPedestrianAccidentmarkerLayer.addMarker(marker);
+                childPedestrianAccidentcounter++;
             }
             else if (positions[i].category == "childSafetyZone"){
                 childSafetyZonemarkerLayer.addMarker(marker);
+                childSafetyZonecounter++;
             }
             else if (positions[i].category == "fireStation"){
                 fireStationmarkerLayer.addMarker(marker);
+                fireStationcounter++;
             }
             else if (positions[i].category == "fireStationSafetyCenter"){
                 fireStationSafetyCentermarkerLayer.addMarker(marker);
+                fireStationSafetyCentercounter++;
             }
             else if (positions[i].category == "policeOffice"){
                 policeOfficemarkerLayer.addMarker(marker);
+                policeOfficecounter++;
             }
             else if (positions[i].category == "roomSalon"){
                 roomSalonmarkerLayer.addMarker(marker);
+                roomSaloncounter++;
             }
             else if (positions[i].category == "childSafetyHouse"){
                 childSafetyHousemarkerLayer.addMarker(marker);
+                childSafetyHousecounter++;
             }
              else if (positions[i].category == "motel"){
                 motelmarkerLayer.addMarker(marker);
+                motelcounter++;
             }
              else if (positions[i].category == "playGround"){
                 playGroundmarkerLayer.addMarker(marker);
+                playGroundcounter++;
             }
              else if (positions[i].category == "elementarySchool"){
                 elementarySchoolmarkerLayer.addMarker(marker);
+                elementarySchoolcounter++;
             }
              else if (positions[i].category == "kindergarten"){
                 kindergartenmarkerLayer.addMarker(marker);
+                kindergartencounter++;
             }
              else if (positions[i].category == "cctv"){
                 cctvmarkerLayer.addMarker(marker);
+                cctvcounter++;
             }
 			 //마커 레이어에 마커 추가
 		}
+		document.getElementById("analysis").style.display = "block";
+		 var area = val * val * 3.14;
+		countfeacture(area);
 
 		// 지도상에 그려질 스타일을 설정합니다
 		var style_red = {
@@ -1477,7 +1584,6 @@ $.ajax({
 });
 
                  });
-
 
         function changeMarker(info){
            var Menu = document.getElementById(info);
@@ -1654,9 +1760,43 @@ function deletemarker(){
         kindergartenmarkerLayer = new Tmap.Layer.Markers();
         map.addLayer(kindergartenmarkerLayer);
 
+        childSafetyZonemarkerLayer.destroy();
+        childSafetyZonemarkerLayer = new Tmap.Layer.Markers();
+        map.addLayer(childSafetyZonemarkerLayer);
+
         cctvmarkerLayer.destroy();
         cctvmarkerLayer = new Tmap.Layer.Markers();
         map.addLayer(cctvmarkerLayer);
+    }
+
+    function countfeacture(area){
+var myTable = document.getElementById('analysis');
+myTable.rows[1].cells[0].innerHTML = schoolZonecounter;
+myTable.rows[1].cells[1].innerHTML = constructioncounter;
+myTable.rows[1].cells[2].innerHTML = motelcounter;
+myTable.rows[1].cells[3].innerHTML = childPedestrianAccidentcounter;
+myTable.rows[1].cells[4].innerHTML = roomSaloncounter;
+myTable.rows[1].cells[5].innerHTML = childSafetyZonecounter;
+myTable.rows[1].cells[6].innerHTML = fireStationcounter;
+myTable.rows[1].cells[7].innerHTML = fireStationSafetyCentercounter;
+myTable.rows[1].cells[8].innerHTML = elementarySchoolcounter;
+myTable.rows[1].cells[9].innerHTML = playGroundcounter;
+myTable.rows[1].cells[10].innerHTML = policeOfficecounter;
+myTable.rows[1].cells[11].innerHTML = kindergartencounter;
+myTable.rows[1].cells[12].innerHTML = childSafetyHousecounter;
+myTable.rows[1].cells[13].innerHTML = cctvcounter;
+
+var params= "feacture="+[policeOfficecounter,motelcounter,constructioncounter,cctvcounter,playGroundcounter,childSafetyHousecounter,childSafetyZonecounter,elementarySchoolcounter+kindergartencounter,roomSaloncounter]+"&area="+area;
+    $.ajax({
+        type:"GET",
+        url:"/predict",
+        data:params,
+        success: function(data) {
+                console.log(data);
+            },
+
+    });
+
     }
 
 </script>
