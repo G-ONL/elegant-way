@@ -810,7 +810,9 @@ map.addLayer(markerStartLayer);
 map.addLayer(markerEndLayer);
 var center_layer = new Tmap.Layer.Vector('Tmap center Layer'); // 백터 레이어 생성
 map.addLayers([center_layer]); // 지도에 백터 레이어 추가
-
+var sel = document.getElementById("sel");
+var val = sel.options[sel.selectedIndex].value;
+var state = true
 
 function onGeolocationSuccess(position) { // 좌표 출력
     my_lat = position.coords.latitude;
