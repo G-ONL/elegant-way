@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% block pre_style %}
+    <link rel="stylesheet" href="static/css/morris.css" >
+{% endblock pre_style %}
+
+{% block content %}
+        <div class="row heading-bg">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                {#						<h3 class="txt-dark" style="font-weight: bold;">소개</h3>#}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            {#									<h6 class="panel-title txt-dark">서울시 어린이 안전 공간 시스템</h6>#}
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <img src="static/img/intro/temp.png" width="100%" height="30%"
+                                 style=" display:block; margin-left:auto; margin-right:auto;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {#						 <div class="panel panel-default card-view">#}
+                <div>
+                    <br>
+                    <h3 class="txt-dark" style="text-align:center;font-weight: bold;margin-top:10px;">추진 배경 및 목적</h3>
+                    <br></br>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">사망원인에 따른 어린이 사망자수(2014-2016년)</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <div id="morris_bar_chart" class="morris-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">어린이 교통사고 사망자 유형별 비율</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <canvas id="chart_8" height="175"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">자녀의 안전에서 가장 우려되는 부분</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div class="panel-body">
+                            <canvas id="chart_6" height="165"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h6 class="panel-title txt-dark">아동대상 성범죄 발생 건수 추이(2006-2015년)</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-wrapper collapse in">
+                        <div id="morris_extra_line_chart" class="morris-chart"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="">
+                    <div class="panel-wrapper collapse in">
+                        <div class="pull-left">
+                            <p class="muted"> 최근 어린이집 폭행, 어린이 유괴 미수, 어린이 성범죄 증가 등 어린이에 대한 각종 범죄와 사고들로 어린이의 안전에 대한 관심이
+                                높아지고 있습니다. 이에 스스로를 지킬 수 있는 판단력과 신체적 조건이 부족하여 보호가 필요한 어린이의 안전에 관한 시스템을 제안하였습니다.<br>통계청이
+                                공개한 보고서 ‘사고에 의한 어린이 사망:1996~2016년’을 보면 2014~2016년 3년 동안 비의도적 사고로 숨진 만 14세 이하 어린이 중
+                                42.5%가 운수사고로 인해 사망하였고, 이중 43.7%가 보행 중 사고를 당한 것으로 집계되었습니다. 이에 매일 등하교를 하는 자녀를 둔 부모들의 걱정이 클
+                                것이라고 생각하였습니다.<br>
+                                또한 통계청에서 뽑은
+                                <자녀의 안전에서 가장 우려되는 부분 1순위>결과 교통사고 30.8%, 성범죄 17.5%로 1,2위를 차지하고 있었고, 2016년 경찰청의 범죄분석에 따르면
+                                    2006~2015년까지 만 13세 미만을 대상으로 한 성범죄의 수가 증가 추세를 보이고 있습니다. 이런 결과에 따라 본 프로젝트에서는 사망원인 1위이자
+                                    걱정거리 1위인 교통사고와 지속적으로 이슈화 되고 증가하고 있는 성범죄 데이터를 아이들의 안전을 판단할 수 있는 요소로 지정하였습니다.<br>
+                                    이를 토대로 보호자와 아동 스스로가 범죄나 사고에 취약한 물리적 환경을 판별하고 이를 회피하게 함으로써 범죄 혹은 사고 노출 기회를 감소시키기 위함에
+                                    있습니다.
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {#						 <div class="panel panel-default card-view">#}
+                <div>
+                    <br>
+                    <h3 class="txt-dark" style="text-align:center;font-weight: bold;margin-top:10px;">배경 지식</h3>
+                    <br></br>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-wrapper collapse in">
+                        <div>
+                            <img src="static/img/intro/chikno.png"
+                                 style="width:70%;height:40%;display:block;margin-left:auto;margin-right:auto;">
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {#						 <div class="panel panel-default card-view">#}
+                <div>
+                    <br>
+                    <h3 class="txt-dark" style="text-align:center;font-weight: bold;margin-top:10px;">기능</h3>
+                    <br></br>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default border-panel card-view">
+                    <div class="panel-wrapper collapse in" style="">
+                        <div style="display:block;margin-left:auto;margin-right:auto;">
+                                <span>
+                                     <img src="static/img/intro/f1.png"
+                                          style="width:20%;height:30%;margin-left:6%;margin-right:2.5%;">
+                                </span>
+                            <span>
+                                     <img src="static/img/intro/f2.png"
+                                          style="width:20%;height:30%;margin-left:auto;margin-right:2.5%;">
+                                </span>
+                            <span>
+                                     <img src="static/img/intro/f3.png"
+                                          style="width:20%;height:30%;margin-left:auto;margin-right:2.5%;">
+                                </span>
+                            <span>
+                                     <img src="static/img/intro/f4.png"
+                                          style="width:20%;height:30%;margin-left:auto;margin-right:5%;">
+                                </span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="">
+                    <div class="panel-wrapper collapse in">
+                        <div class="pull-left">
+                            <p class="muted">
+                            <ul>
+                                <li>경로안내 기능 : 경로안내 기능으로 최단 경로를 알 수 있게 하고, 출발지와 목적지의 중심점으로부터의 반경 내의 안전요소와 위험 요소를 알려준다.
+                                </li>
+                                <li>안전요소(총 9개) : 어린이보호구역, 경찰서, 초등학교, 유치원, 어린이집, 어린이놀이시설, 아동복지시설, CCTV,아동안전지킴이집,</li>
+                                <li>위험요소(총 7개) : 교통사고, 어린이보행자사고, 스쿨존내교통사고, 공사진행현황, 유흥업소, 숙박업소, 당구장</li>
+                                <li>안전등급 : 현재 위치 또는 선택한 위치의 반경 내 위험요소와 안전요소를 분석하여 위험등급을 3단계로 표시한다.<br></li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock content %}
+{% block script %}
+    <script src="static/js/chart/Chart.min.js"></script>
+    <script src="static/js/chart/raphael.min.js"></script>
+    <script src="static/js/chart/morris.min.js"></script>
+    <script src="static/js/chart/jquery.easypiechart.min.js"></script>
+    <script src="static/js/chart/data/chartjs-data.js"></script>
+    <script src="static/js/chart/data/morris-data.js"></script>
+    <script src="static/js/chart/data/easypiechart-data.js"></script>
+{% endblock script %}

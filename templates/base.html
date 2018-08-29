@@ -1,54 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>{% block title %}{{title|default}}{% endblock title %}</title>
-
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    {#        html5 보일러플레이트#}
-    <link rel="stylesheet" href="static/css/normalize.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>우리아이 안전한 길</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/bttt.red.css">
+    <link rel="stylesheet" href="static/css/preloaders.min.css">
     <link rel="stylesheet" href="static/css/main.css">
-    <link rel="stylesheet" href="static/css/bootstrap.css">
-    {#        html5 보일러플레이트#}
-
-    <script src="/static/js/vendor/modernizr-3.6.0.min.js"></script>
-
-    {%- block styles %}
-    {%- endblock styles %}
-
+    {%- block pre_style -%}{%- endblock pre_style -%}
+    <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    {%- block post_style -%}{%- endblock post_style -%}
+    <script src="static/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () { // makes sure the whole site is loaded
+            var preloader = $('#mask div');
+            preloader.fadeOut(); // will first fade out the loading animation
+            $('#mask').delay(150).fadeOut('slow');
+            $('body').delay(150).css({'overflow': 'visible'});
+        })
+    </script>
 </head>
-<body{% block body_attribs %}{% endblock body_attribs %}>
-
-{% include 'navi_bar.html' %}
-
-<div class={% block container_name %}container{% endblock container_name %}>
-    {% block warning %}{%- endblock warning %}
-    {% block content -%}
-
-    {%- endblock content %}
+<body class="is-bttt">
+<div id="mask">
+    <div id="dots5"><span></span><span></span><span></span><span></span></div>
 </div>
-
-
-{#        html5 보일러플레이트#}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-<script src="/static/js/plugins.js"></script>
-<script src="/static/js/main.js"></script>
-{#        html5 보일러플레이트#}
-
-{#    부트스트랩(네비게이션바) 기본 JS#}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-{#    부트스트랩(네비게이션바) 기본 JS#}
-
-{#Font Awesome#}
-<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-{#Font Awesome#}
-{% block scripts %}
-{% endblock scripts %}
+<div class="wrapper theme-2-active navbar-top-light">
+    {%- include 'nav.html' -%}
+    <div class="page-wrapper">
+{#        <a id="toggle_nav_btn" href="javascript:void(0);"><i class="ti-align-left"></i></a>#}
+        <div class="container">
+            {%- block content -%}{%- endblock content -%}
+        </div>
+    </div>
+    <a
+            id="back-to-the-top" class="back-to-the-top bttt-default bttt-positionRight "
+            data-animation="easeInOutQuart"
+            data-speed="1500"
+            data-offset="150">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+<script src="static/js/jquery-ui.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.slimscroll.js"></script>
+<script src="static/js/bttt.min.js"></script>
+<script src="static/js/scrollProgress.min.js"></script>
+<script src="static/js/clutch_widgets.js"></script>
+<script src="static/js/clutchWidgetsInit.js"></script>
+<script src="static/js/init.js"></script>
+<script>
+    $(function () {
+        $('body').scrollProgress({
+            position:
+                [
+                    {
+                        location: 'top',
+                        direction: 'left',
+                        size: 5
+                    }
+                ],
+            singleColor: '#ff936d'
+        });
+    })
+</script>
+{% block script %}{% endblock script %}
 </body>
 </html>

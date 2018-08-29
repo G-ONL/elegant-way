@@ -1,0 +1,773 @@
+/*---------------------------------
+  TABLE OF CONTENTS :-
+
+  | 01. CluthWidgets                  
+------------------------------------*/
+/*
+  Variables
+*/
+.head-banner {
+  color: white;
+  background-color: #4fc1e9;
+  background: url("../img/banner.jpg") no-repeat center center;
+  background-size: cover;
+  margin-bottom: 35px;
+}
+.head-banner .banner-text {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+.head-banner .banner-text h1 {
+  font-size: 4.5em;
+  font-weight: 400;
+}
+.head-banner .banner-text p {
+  font-size: 1.8em;
+  opacity: 0.8;
+  font-weight: 300;
+}
+.head-banner .banner-buttons {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.mr15 {
+  margin-right: 15px !important;
+}
+.btn-lg {
+  border-radius: 3px !important;
+}
+body {
+  background-color: #f2f6fa;
+}
+.tooltip {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+.tooltip .tooltip-inner {
+  color: #fff;
+  font-weight: bold;
+  background-color: #37BC9B;
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: #37BC9B;
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: #37BC9B;
+}
+.tooltip.left .tooltip-arrow {
+  border-left-color: #37BC9B;
+}
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #37BC9B;
+}
+/*
+  Styles
+*/
+div[data-ci] {
+  background-color: #e1e5e9;
+}
+.widget-on-drag {
+  border: 2px dashed #b0c0d0;
+}
+.start-highlight {
+  background-color: #37bc9b !important;
+  color: #ffffff;
+}
+.cpanel {
+  overflow: hidden;
+  margin-bottom: 22px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #c2c6ca;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+}
+.cpanel .fa {
+  font-size: 15px;
+}
+.cpanel .fa-2x {
+  font-size: 2em;
+}
+.cpanel .fa-3x {
+  font-size: 3em;
+}
+.cpanel-head {
+  font-size: 18px;
+  position: relative;
+}
+.cpanel-head .cpanel-head-button {
+  float: right;
+}
+.cpanel-head .cpanel-head-button a,
+.cpanel-head .cpanel-head-button a:hover,
+.cpanel-head .cpanel-head-button a:focus,
+.cpanel-head .cpanel-head-button a:active {
+  cursor: pointer !important;
+}
+.cpanel-head .cpanel-head-button > a > i,
+.cpanel-head .cpanel-head-button li.dropdown > a > i {
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  width: 38px;
+  padding: 11px 0px;
+  text-decoration: none;
+}
+.cpanel-head .cpanel-head-button .process {
+  float: left;
+}
+.cpanel-head .cpanel-head-button .process i {
+  border-left: none !important;
+}
+.cpanel-head .data-title {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 2.4;
+  padding: 2px 12px 1px;
+  text-align: left;
+}
+.cpanel-head .data-title i {
+  font-size: 17px;
+  color: inherit;
+  margin-right: 4px;
+}
+.cpanel[data-cw-edit="true"] .data-title {
+  cursor: pointer !important;
+}
+.cpanel[data-cw-draggable="true"] .cpanel-head {
+  cursor: move;
+}
+.cpanel-body {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.cpanel-body .cpanel-toolbar {
+  padding: 10px 12px;
+  background-color: #fafcff;
+  border: 1px solid #c2c6ca;
+  border-top: none;
+  overflow: auto;
+}
+.cpanel-body .cpanel-content {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid #c2c6ca;
+  border-top: none;
+  background-color: #ffffff;
+  color: #45484d;
+  padding: 15px;
+}
+.cpanel-foot {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 13px 15px;
+  background-color: #fafafa;
+  border: 1px solid #c2c6ca;
+  border-top: none;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs,
+.cpanel-tabbed .cpanel-head .nav-pills {
+  border-bottom: none;
+  float: left;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li > a,
+.cpanel-tabbed .cpanel-head .nav-pills > li > a {
+  border-radius: 0;
+  font-size: 13px;
+  padding: 9px 8px;
+  border: none;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li > a > i,
+.cpanel-tabbed .cpanel-head .nav-pills > li > a > i {
+  font-size: 17px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  vertical-align: top;
+  margin: 1px 5px 0px 0px;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li.active > a,
+.cpanel-tabbed .cpanel-head .nav-pills > li.active > a {
+  font-weight: 600;
+  padding: 9px 8px;
+  border: none;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li > a {
+  color: white;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li > a:hover {
+  margin-top: 1px;
+  background-color: #f4f4f4;
+  color: #666666;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li.active > a {
+  font-weight: bold;
+  color: #505050;
+  margin-top: 1px;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li.active > a > i {
+  color: #505050;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li.active > a:hover {
+  background-color: white;
+  color: #505050;
+}
+.cpanel-tabbed .cpanel-head .nav-tabs > li.active > a:hover > i {
+  color: #505050;
+}
+.cpanel-tabbed .cpanel-head .nav-pills > li > a,
+.cpanel-tabbed .cpanel-head .nav-pills > li.active > a {
+  padding: 7px 8px;
+  margin-top: 2px;
+}
+.cpanel-tabbed .cpanel-head .nav-pills > li.active > a {
+  background-color: #37bc9b;
+  color: white;
+}
+.cpanel-tabbed .cpanel-head .nav-pills > li.active > a:hover {
+  opacity: 1.0;
+  background-color: #37bc9b;
+}
+.cpanel-tabbed.cpanel-tabs-left .cpanel-head .nav-tabs,
+.cpanel-tabbed.cpanel-tabs-left .cpanel-head .nav-pills {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.cpanel-tabbed.cpanel-tabs-left .cpanel-head .data-title {
+  visibility: hidden;
+}
+.cpanel-tabbed.cpanel-tabs-left .cpanel-head .nav-pills {
+  left: 2px;
+}
+.cpanel-fs {
+  position: fixed !important;
+  top: 0px !important;
+  left: 0px !important;
+  z-index: 990 !important;
+  overflow-y: auto !important;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: #fff;
+}
+.cpanel-fs .cpanel-body {
+  height: auto !important;
+}
+.cpanel-fs .cpanel-content {
+  width: 100% !important;
+}
+.cpanel-fs .cpanel-close {
+  display: none;
+}
+.cpanel-fd .cpanel-body {
+  overflow: auto;
+}
+.cpanel-fd .cpanel-body .cpanel-content {
+  overflow: hidden;
+}
+/*
+  Cpanel Color Styles
+*/
+.cpanel-skin-default .cpanel-head .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-head .cpanel-head-button li.dropdown > a > i {
+  color: white;
+  opacity: 0.8;
+}
+.cpanel-skin-default .cpanel-head .data-title {
+  color: white;
+}
+.cpanel-skin-default .cpanel-default {
+  border: 1px solid #c2c6ca;
+  background-color: #f9fcff;
+  -webkit-box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
+}
+.cpanel-skin-default .cpanel-default .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-default .cpanel-head-button li.dropdown > a > i {
+  color: #515151;
+  opacity: 1.0;
+  border-left: 1px solid #c2c6ca;
+}
+.cpanel-skin-default .cpanel-default .data-title {
+  color: #515151;
+}
+.cpanel-skin-default .cpanel-default .data-title i {
+  color: #777;
+}
+.cpanel-skin-default .cpanel-default .nav-tabs > li > a {
+  color: #515151;
+}
+.cpanel-skin-default .cpanel-default .nav-tabs > li > a:hover {
+  color: #515151;
+}
+.cpanel-skin-default .cpanel-default .nav-tabs > li > a:hover > i {
+  color: #515151;
+}
+.cpanel-skin-default .cpanel-default .nav-tabs > li.active > a {
+  border-right: 1px solid #c2c6ca;
+  border-left: 1px solid #c2c6ca;
+  -webkit-box-shadow: 0px -2px 0px #247fa8;
+  box-shadow: 0px -2px 0px #247fa8;
+}
+.cpanel-skin-default .cpanel-sky-blue {
+  background-color: #4a89dc;
+  border: 1px solid #397ed9;
+}
+.cpanel-skin-default .cpanel-sky-blue .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-sky-blue .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #397ed9;
+}
+.cpanel-skin-default .cpanel-sky-blue .nav-pills > li > a,
+.cpanel-skin-default .cpanel-sky-blue .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-sky-blue .nav-pills > li > a:focus {
+  background-color: #4a89dc;
+  color: white;
+}
+.cpanel-skin-default .cpanel-brown {
+  background-color: #b88f6a;
+  border: 1px solid #b1855c;
+}
+.cpanel-skin-default .cpanel-brown .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-brown .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #b1855c;
+}
+.cpanel-skin-default .cpanel-brown .nav-pills > li > a,
+.cpanel-skin-default .cpanel-brown .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-brown .nav-pills > li > a:focus {
+  background-color: #b88f6a;
+  color: white;
+}
+.cpanel-skin-default .cpanel-red {
+  background-color: #fc6e51;
+  border: 1px solid #fc5d3d;
+}
+.cpanel-skin-default .cpanel-red .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-red .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #fc5d3d;
+}
+.cpanel-skin-default .cpanel-red .nav-pills > li > a,
+.cpanel-skin-default .cpanel-red .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-red .nav-pills > li > a:focus {
+  background-color: #fc6e51;
+  color: white;
+}
+.cpanel-skin-default .cpanel-grey {
+  background-color: #95a5a6;
+  border: 1px solid #8a9c9d;
+}
+.cpanel-skin-default .cpanel-grey .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-grey .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #8a9c9d;
+}
+.cpanel-skin-default .cpanel-grey .nav-pills > li > a,
+.cpanel-skin-default .cpanel-grey .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-grey .nav-pills > li > a:focus {
+  background-color: #95a5a6;
+  color: white;
+}
+.cpanel-skin-default .cpanel-dark-blue {
+  background-color: #4a89dc;
+  border: 1px solid #397ed9;
+}
+.cpanel-skin-default .cpanel-dark-blue .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-dark-blue .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #397ed9;
+}
+.cpanel-skin-default .cpanel-dark-blue .nav-pills > li > a,
+.cpanel-skin-default .cpanel-dark-blue .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-dark-blue .nav-pills > li > a:focus {
+  background-color: #4a89dc;
+  color: white;
+}
+.cpanel-skin-default .cpanel-light-green {
+  background-color: #8cc152;
+  border: 1px solid #82bb43;
+}
+.cpanel-skin-default .cpanel-light-green .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-light-green .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #82bb43;
+}
+.cpanel-skin-default .cpanel-light-green .nav-pills > li > a,
+.cpanel-skin-default .cpanel-light-green .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-light-green .nav-pills > li > a:focus {
+  background-color: #8cc152;
+  color: white;
+}
+.cpanel-skin-default .cpanel-orange {
+  background-color: #e67e22;
+  border: 1px solid #db7419;
+}
+.cpanel-skin-default .cpanel-orange .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-orange .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #db7419;
+}
+.cpanel-skin-default .cpanel-orange .nav-pills > li > a,
+.cpanel-skin-default .cpanel-orange .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-orange .nav-pills > li > a:focus {
+  background-color: #e67e22;
+  color: white;
+}
+.cpanel-skin-default .cpanel-pink {
+  background-color: #d770ad;
+  border: 1px solid #d360a4;
+}
+.cpanel-skin-default .cpanel-pink .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-pink .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #d360a4;
+}
+.cpanel-skin-default .cpanel-pink .nav-pills > li > a,
+.cpanel-skin-default .cpanel-pink .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-pink .nav-pills > li > a:focus {
+  background-color: #d770ad;
+  color: white;
+}
+.cpanel-skin-default .cpanel-purple {
+  background-color: #9b59b6;
+  border: 1px solid #924dae;
+}
+.cpanel-skin-default .cpanel-purple .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-purple .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #924dae;
+}
+.cpanel-skin-default .cpanel-purple .nav-pills > li > a,
+.cpanel-skin-default .cpanel-purple .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-purple .nav-pills > li > a:focus {
+  background-color: #9b59b6;
+  color: white;
+}
+.cpanel-skin-default .cpanel-black {
+  background-color: #434a54;
+  border: 1px solid #3a4049;
+}
+.cpanel-skin-default .cpanel-black .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-black .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #3a4049;
+}
+.cpanel-skin-default .cpanel-black .nav-pills > li > a,
+.cpanel-skin-default .cpanel-black .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-black .nav-pills > li > a:focus {
+  background-color: #434a54;
+  color: white;
+}
+.cpanel-skin-default .cpanel-green {
+  background-color: #37bc9b;
+  border: 1px solid #32ac8e;
+}
+.cpanel-skin-default .cpanel-green .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-green .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #32ac8e;
+}
+.cpanel-skin-default .cpanel-green .nav-pills > li > a,
+.cpanel-skin-default .cpanel-green .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-green .nav-pills > li > a:focus {
+  background-color: #37bc9b;
+  color: white;
+}
+.cpanel-skin-default .cpanel-yellow {
+  background-color: #f6bb42;
+  border: 1px solid #f5b42f;
+}
+.cpanel-skin-default .cpanel-yellow .cpanel-head-button > a > i,
+.cpanel-skin-default .cpanel-yellow .cpanel-head-button li.dropdown > a > i {
+  border-left: 1px solid #f5b42f;
+}
+.cpanel-skin-default .cpanel-yellow .nav-pills > li > a,
+.cpanel-skin-default .cpanel-yellow .nav-pills > li > a:hover,
+.cpanel-skin-default .cpanel-yellow .nav-pills > li > a:focus {
+  background-color: #f6bb42;
+  color: white;
+}
+.color-button {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: 3px;
+  margin-left: 3px;
+  cursor: pointer;
+}
+.color-button:hover {
+  -webkit-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.color-dropdown {
+  min-width: 138px;
+  width: 138px;
+  padding: 6px 3px 1px;
+  right: 4px;
+  left: auto;
+  cursor: pointer;
+}
+.cpanel-on-load::before {
+  content: url("../img/loader/loader-big.gif");
+  text-align: center;
+  display: block;
+  background-color: #FFFF80;
+  opacity: 0.2;
+  height: 100%;
+  z-index: 100;
+  width: 100%;
+  position: absolute;
+  padding-top: 15%;
+  color: #fff;
+}
+.cpanel-on-load:hover {
+  cursor: wait!important;
+}
+.edit-bg-transition {
+  -webkit-transition: background-color 1400ms ease-out;
+  -moz-transition: background-color 1400ms ease-out;
+  -o-transition: background-color 1400ms ease-out;
+  -ms-transition: background-color 1400ms ease-out;
+  transition: background-color 1400ms ease-out;
+}
+/*
+  Reset Variables
+  alias-> cb
+*/
+/*
+  Styles
+*/
+.cpanel-skin-border div[data-ci] {
+  background-color: #e8f0fa;
+}
+.cpanel-skin-border .widget-on-drag {
+  border: none;
+  border-top: 7px solid #afbed5;
+}
+.cpanel-skin-border .cpanel {
+  border: none;
+}
+.cpanel-skin-border .cpanel-head .cpanel-head-button {
+  margin-top: 13px;
+}
+.cpanel-skin-border .cpanel-head .cpanel-head-button > a > i,
+.cpanel-skin-border .cpanel-head .cpanel-head-button li.dropdown > a > i {
+  border-radius: 50%;
+}
+.cpanel-skin-border .cpanel-head .cpanel-head-button *:last-child {
+  margin-right: 10px;
+}
+.cpanel-skin-border .cpanel-head .data-title {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 12px 14px;
+}
+.cpanel-skin-border .cpanel-head .process i {
+  border: none !important;
+}
+.cpanel-skin-border .cpanel-head .process i:hover {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+.cpanel-skin-border .cpanel-body .cpanel-toolbar {
+  border: none;
+  background-color: #f7f7f9;
+  margin-bottom: 15px;
+}
+.cpanel-skin-border .cpanel-body .cpanel-content {
+  border: none;
+  padding-top: 0;
+}
+.cpanel-skin-border .cpanel-foot {
+  border: none;
+  background-color: #f7f7f9;
+}
+.cpanel-skin-border .cpanel-default {
+  border: none;
+  border-top: 7px solid #c0c8c7;
+}
+.cpanel-skin-border .cpanel-default .cpanel-head-button a > i {
+  color: #c0c8c7;
+  border: 1px solid #c0c8c7;
+}
+.cpanel-skin-border .cpanel-default .cpanel-head-button a > i:hover {
+  background-color: #c0c8c7;
+  color: white;
+}
+.cpanel-skin-border .cpanel-default .data-title {
+  color: #c0c8c7;
+}
+.cpanel-skin-border .cpanel-sky-blue {
+  border: none;
+  border-top: 7px solid #4a89dc;
+}
+.cpanel-skin-border .cpanel-sky-blue .cpanel-head-button a > i {
+  color: #4a89dc;
+  border: 1px solid #4a89dc;
+}
+.cpanel-skin-border .cpanel-sky-blue .cpanel-head-button a > i:hover {
+  background-color: #4a89dc;
+  color: white;
+}
+.cpanel-skin-border .cpanel-sky-blue .data-title {
+  color: #4a89dc;
+}
+.cpanel-skin-border .cpanel-brown {
+  border: none;
+  border-top: 7px solid #b88f6a;
+}
+.cpanel-skin-border .cpanel-brown .cpanel-head-button a > i {
+  color: #b88f6a;
+  border: 1px solid #b88f6a;
+}
+.cpanel-skin-border .cpanel-brown .cpanel-head-button a > i:hover {
+  background-color: #b88f6a;
+  color: white;
+}
+.cpanel-skin-border .cpanel-brown .data-title {
+  color: #b88f6a;
+}
+.cpanel-skin-border .cpanel-red {
+  border: none;
+  border-top: 7px solid #fc6e51;
+}
+.cpanel-skin-border .cpanel-red .cpanel-head-button a > i {
+  color: #fc6e51;
+  border: 1px solid #fc6e51;
+}
+.cpanel-skin-border .cpanel-red .cpanel-head-button a > i:hover {
+  background-color: #fc6e51;
+  color: white;
+}
+.cpanel-skin-border .cpanel-red .data-title {
+  color: #fc6e51;
+}
+.cpanel-skin-border .cpanel-grey {
+  border: none;
+  border-top: 7px solid #95a5a6;
+}
+.cpanel-skin-border .cpanel-grey .cpanel-head-button a > i {
+  color: #95a5a6;
+  border: 1px solid #95a5a6;
+}
+.cpanel-skin-border .cpanel-grey .cpanel-head-button a > i:hover {
+  background-color: #95a5a6;
+  color: white;
+}
+.cpanel-skin-border .cpanel-grey .data-title {
+  color: #95a5a6;
+}
+.cpanel-skin-border .cpanel-dark-blue {
+  border: none;
+  border-top: 7px solid #4a89dc;
+}
+.cpanel-skin-border .cpanel-dark-blue .cpanel-head-button a > i {
+  color: #4a89dc;
+  border: 1px solid #4a89dc;
+}
+.cpanel-skin-border .cpanel-dark-blue .cpanel-head-button a > i:hover {
+  background-color: #4a89dc;
+  color: white;
+}
+.cpanel-skin-border .cpanel-dark-blue .data-title {
+  color: #4a89dc;
+}
+.cpanel-skin-border .cpanel-light-green {
+  border: none;
+  border-top: 7px solid #8cc152;
+}
+.cpanel-skin-border .cpanel-light-green .cpanel-head-button a > i {
+  color: #8cc152;
+  border: 1px solid #8cc152;
+}
+.cpanel-skin-border .cpanel-light-green .cpanel-head-button a > i:hover {
+  background-color: #8cc152;
+  color: white;
+}
+.cpanel-skin-border .cpanel-light-green .data-title {
+  color: #8cc152;
+}
+.cpanel-skin-border .cpanel-orange {
+  border: none;
+  border-top: 7px solid #e67e22;
+}
+.cpanel-skin-border .cpanel-orange .cpanel-head-button a > i {
+  color: #e67e22;
+  border: 1px solid #e67e22;
+}
+.cpanel-skin-border .cpanel-orange .cpanel-head-button a > i:hover {
+  background-color: #e67e22;
+  color: white;
+}
+.cpanel-skin-border .cpanel-orange .data-title {
+  color: #e67e22;
+}
+.cpanel-skin-border .cpanel-pink {
+  border: none;
+  border-top: 7px solid #d770ad;
+}
+.cpanel-skin-border .cpanel-pink .cpanel-head-button a > i {
+  color: #d770ad;
+  border: 1px solid #d770ad;
+}
+.cpanel-skin-border .cpanel-pink .cpanel-head-button a > i:hover {
+  background-color: #d770ad;
+  color: white;
+}
+.cpanel-skin-border .cpanel-pink .data-title {
+  color: #d770ad;
+}
+.cpanel-skin-border .cpanel-purple {
+  border: none;
+  border-top: 7px solid #9b59b6;
+}
+.cpanel-skin-border .cpanel-purple .cpanel-head-button a > i {
+  color: #9b59b6;
+  border: 1px solid #9b59b6;
+}
+.cpanel-skin-border .cpanel-purple .cpanel-head-button a > i:hover {
+  background-color: #9b59b6;
+  color: white;
+}
+.cpanel-skin-border .cpanel-purple .data-title {
+  color: #9b59b6;
+}
+.cpanel-skin-border .cpanel-black {
+  border: none;
+  border-top: 7px solid #434a54;
+}
+.cpanel-skin-border .cpanel-black .cpanel-head-button a > i {
+  color: #434a54;
+  border: 1px solid #434a54;
+}
+.cpanel-skin-border .cpanel-black .cpanel-head-button a > i:hover {
+  background-color: #434a54;
+  color: white;
+}
+.cpanel-skin-border .cpanel-black .data-title {
+  color: #434a54;
+}
+.cpanel-skin-border .cpanel-green {
+  border: none;
+  border-top: 7px solid #37bc9b;
+}
+.cpanel-skin-border .cpanel-green .cpanel-head-button a > i {
+  color: #37bc9b;
+  border: 1px solid #37bc9b;
+}
+.cpanel-skin-border .cpanel-green .cpanel-head-button a > i:hover {
+  background-color: #37bc9b;
+  color: white;
+}
+.cpanel-skin-border .cpanel-green .data-title {
+  color: #37bc9b;
+}
+.cpanel-skin-border .cpanel-yellow {
+  border: none;
+  border-top: 7px solid #f6bb42;
+}
+.cpanel-skin-border .cpanel-yellow .cpanel-head-button a > i {
+  color: #f6bb42;
+  border: 1px solid #f6bb42;
+}
+.cpanel-skin-border .cpanel-yellow .cpanel-head-button a > i:hover {
+  background-color: #f6bb42;
+  color: white;
+}
+.cpanel-skin-border .cpanel-yellow .data-title {
+  color: #f6bb42;
+}

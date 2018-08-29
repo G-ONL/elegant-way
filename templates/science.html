@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <h1 class="panel-title txt-dark" style="font-size: 50px;">안전등급</h1>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <p class="mt-10 txt-dark">
+                        <h2>변수</h2></p>
+                        <ul class="uo-list mt-20 mb-20 pl-15">
+                            <li class="mb-10 txt-dark"><h5>features(독립변수) : 면적당 경찰서, 숙박업소, 공사진행현황, CCTV, 어린이
+                                놀이시설, 아동안전지킴이집, 어린이 보호구역
+                                (초등학교,유치원,어린이집), (유흥업소,단란주점)의 개수</h5></li>
+                            <li class="mb-10 txt-dark"><h5>target(종속변수) : 면적당 어린이 교통사고수</h5></li>
+                        </ul>
+                        <p class="mt-10 txt-dark"><h5>우리는 앞에서 말했듯이 어린이들을 위해 특정 지점 주변의 안전등급을 알려주는 서비스를 제공하고자
+                        했다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>그렇기 위해서는 일단 안전에 대한 척도를 무엇으로 정할 것인가를 정해야 했다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>우리는 부모님들이 아이들의 안전에 대해 우려하는 1순위인 교통사고 2순위인 아동성빔죄 혹은 아동 대상
+                        범죄가</h5></p>
+                        <p class="mt-10 txt-dark"><h5>적게 일어나는 곳을, 안전한 곳으로 생각할 수 있었다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>그러나, 아동성범죄와 아동대상 범죄에 관한 데이터는 우리 수준에서 얻기 힘들었고, 그나마 서울특별시
+                        동별로 얻을 수 있는</h5></p>
+                        <p class="mt-10 txt-dark"><h5>어린이 교통사고를 이용하기로 했다. 앞으로 우리가 말하는 안전은 교통사고에 대한 것을
+                        말한다.</h5></p>
+                        <br>
+                        <p class="mt-10 txt-dark"><h5>우리가 제공하는 서비스(어린이에게 주변 시설에 관한 정보를 알려주는 것)에 따라 어린이 교통사고에 영향을
+                        끼칠 수 있는</h5></p>
+                        <p class="mt-10 txt-dark"><h5>feature들을 위에와 같이 생각해 보았다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>위에 있는 feature들처럼 어린이 교통사고에 영향을 끼칠 수 있는 것들을 종속변수로
+                        지정하고,</h5></p>
+                        <p class="mt-10 txt-dark"><h5>target 값으로 어린이 교통사고를 넣어주었다. 그리고 우리가 종속변수와 독립변수가 범주형
+                        자료이기에</h5></p>
+                        <p class="mt-10 txt-dark"><h5>logistic regression와 decision tree를 적용해보기로 결정하였다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>이 때, 법정동의 면적이 전부 다르기 때문에 모든 데이터를 면적으로 나누었다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>그리고 모델을 적용시켜주기 위해 어린이 교통사고 수를 동면적으로 나눈 값을 3등급(안전, 주의,
+                        위험)으로 분류해주었다.</h5></p>
+                        <img src="static/img/heatmap.png">
+                        <p class="mt-10 txt-dark"><h5>feature 간의 Multicollinearity(다중공선성문제)를 해결하기 위해
+                        초등학교,유치원,어린이집을 한 컬럼으로, 유흥업소와 단란주점을 한 컬럼으로 결정했다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>Logistic regression을 적용한 결과 평균 0.873의 Accuracy을
+                        보였다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>cross-validation의 결과 평균 0.882으로 overfitting(과적합)이 없음을
+                        확인하였다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>decision tree를 적용한 결과 평균 0.820의 Accuracy을 보였다.</h5></p>
+                        <p class="mt-10 txt-dark"><h5>즉, Logistic regression을 적합한 모델로 선택.</h5></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
