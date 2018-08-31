@@ -138,7 +138,7 @@
 		processClass: 'fa fa-refresh fa-spin',
 		processTime: 1000,
 		buttonOrder: 'process refresh modal color highlight fullscreen clear toggle remove'
-	}
+	};
 
 	/*
 	 * Init function
@@ -171,7 +171,7 @@
 		}
 		
 		return this;
-	}
+	};
 
 	/*
 	 * Provide index to the widget
@@ -186,7 +186,7 @@
 		if(this.options.makeStructure){
 			self._makeStructure();
 		}
-	}
+	};
 
 	/*
 	 * Make HTML structure(DOM) for the widget
@@ -208,7 +208,7 @@
 		this.obj.attr('data-cw-headColor') ? this.obj.find('.cpanel-head').addClass('cpanel-' + this.obj.attr('data-cw-headColor')) : this.obj.find('.cpanel-head').addClass('cpanel-' + this.options.headColor);
 		this._makeButtons(); 
 		this._basicStyle(this.obj);
-	}
+	};
 
 	/*
 	 * Make Buttons
@@ -333,7 +333,7 @@
 			}
 		}
 		this._attachEvents();   
-	}
+	};
 
 	/*
 	 * Process Display
@@ -341,14 +341,15 @@
 	clutch.prototype._showProcess = function() {
 		var self = this;
 		var windowWidth = $(window).width();
+
 		if (windowWidth > 992){ 
 			self.obj.find('.process > i').addClass(this.processClass[2] + ' ' + this.processClass[1]);
 			setTimeout(function () {
 				self.obj.find('.process > i').removeClass(self.processClass[2] + ' ' + self.processClass[1]);
-				return;
+
 			}, self.options.processTime);
-		} 
-	}
+		}
+	};
 
 	/*
 	 * Event Handlers
@@ -376,7 +377,7 @@
 							id : self.obj.attr("id"),
 							dataIndex : self.obj.attr("data-wi"),
 							m : 1
-						}
+						};
 						widgetData[wid] = widgetTempData;
 					}
 					localStorage.setItem("widgetsData", JSON.stringify(widgetData));
@@ -397,7 +398,7 @@
 							id : self.obj.attr("id"),
 							dataIndex : self.obj.attr("data-wi"),
 							m : 0
-						}
+						};
 						widgetData[wid] = widgetTempData;
 					}
 					localStorage.setItem("widgetsData", JSON.stringify(widgetData));
@@ -418,7 +419,7 @@
 						id : self.obj.attr("id"),
 						dataIndex : self.obj.attr("data-wi"),
 						hC : $(this).attr("data-cw-headColor")
-					}
+					};
 					widgetData[wid] = widgetTempData;
 				}
 				localStorage.setItem("widgetsData", JSON.stringify(widgetData));
@@ -461,6 +462,8 @@
 
 		//Fullscreen events handling
 		this.obj.find('.cpanel-head-button .' +  this.expandBtnClass[1]).click(function(){
+			var mapBody = self.obj.find('#map_div');
+
 			if($(this).hasClass(self.expandBtnClass[1])){
 				
 				if(self.draggable == 'true'){
@@ -472,6 +475,8 @@
 					
 				self._showProcess();
 				$(this).removeClass('fa-expand').addClass('fa-compress');
+
+				mapBody.css('height', ($(window).height() - 200));
 			}
 			else{
 				self.obj.removeClass('cpanel-fs');
@@ -484,7 +489,10 @@
 
 				self._showProcess();
 				$(this).removeClass('fa-compress').addClass('fa-expand');
+
+				mapBody.css('height', '600px');
 			}
+				$(window).trigger('resize');
 		});
 		
 		//Highlight events handling
@@ -557,7 +565,7 @@
 									id : self.obj.attr("id"),
 									dataIndex : self.obj.attr("data-wi"),
 									t : tid.html().trim()
-								}
+								};
 								widgetData[wid] = widgetTempData;
 							}
 							localStorage.setItem("widgetsData", JSON.stringify(widgetData));
@@ -592,7 +600,7 @@
 			this.obj.find('.cpanel-body').slideUp(10);
 			this.obj.find('.cpanel-foot').slideUp(10);
 		}
-	}
+	};
 
 	/*
 	 * Ajax Loading function
@@ -616,7 +624,7 @@
 			},
 			async: false    
 		});
-	}
+	};
 
 	/*
 	 * Make Widget Draggable
@@ -676,7 +684,7 @@
 							var DraggableTempData = {
 								id : draggableWidget.attr("id"),
 								dataIndex : draggableWidget.attr("data-wi")
-							}
+							};
 							widgetData[id] = DraggableTempData;
 						}
 							
@@ -690,7 +698,7 @@
 							var DroppableTempData = {
 								id : droppableWidget.attr("id"),
 								dataIndex : droppableWidget.attr("data-wi")
-							}
+							};
 							widgetData[id] = DroppableTempData;
 						}
 							
@@ -702,7 +710,7 @@
 				}
 			});
 		}
-	}
+	};
 	
 	/*
 	 * Widget basic styling
@@ -717,7 +725,7 @@
 			el.find('.cpanel-content').css("width", el.attr('data-cw-width'));
 			if(!el.hasClass('cpanel-fd')){el.addClass('cpanel-fd');}
 		}
-	}
+	};
 
 	/*
 	 * Widget LocalStorage clear
@@ -729,7 +737,7 @@
 			location.reload();
 		});
 		$('.' + this.options.clearStorageClass).attr('data-attached', true);    
-	}
+	};
 
 	/*
 	 * Load widget Storage
@@ -776,7 +784,7 @@
 				}
 			}
 		});
-	}
+	};
 
 	/*
 	 * Clutch Widgets function

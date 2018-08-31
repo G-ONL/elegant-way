@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block pre_style %}
+{% endblock pre_style %}
+
+{% block content %}
+    <div class="row">
+        <div class="panel panel-default border-panel card-view panel-refresh">
+            <div class="panel-body">
+                <div style="padding: 20px 40px;">
+                    <img src="static/img/data.png" style="width:100%;height:100%;">
+                </div>
+                <ul class="flex-stat mt-40">
+                    <li>
+                        <span class="block">총 데이터 수집 (건)</span>
+                        <span class="block txt-dark weight-500 font-48"><span
+                                class="counter-anim txt-orange-light-1">1,000,000</span></span>
+                    </li>
+                    <li>
+                        <span class="block">전처리 데이터 (건)</span>
+                        <span class="block txt-dark weight-500 font-48"><span
+                                class="counter-anim txt-orange-light-1">600,000</span></span>
+                    </li>
+                    <li>
+                        <span class="block">MongoDB Collection</span>
+                        <span class="block txt-dark weight-500 font-48"><span
+                                class="counter-anim txt-orange-light-1">14</span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script src="static/js/jquery.waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+{% endblock script %}

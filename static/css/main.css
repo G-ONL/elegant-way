@@ -771,3 +771,17 @@ div[data-ci] {
 .cpanel-skin-border .cpanel-yellow .data-title {
   color: #f6bb42;
 }
+
+    li.active {
+	    background: #ff6028;
+        color: #ffffff;
+        font-weight:bold ;
+    }
+    .fixed-sidebar-left li.active a .right-nav-text {
+        color : #ffffff;
+        font-weight:bold ;
+    }
+    .fixed-sidebar-left .side-nav li.active a .pull-left > i {
+        color : #ffffff;
+        font-weight:bold ;
+    }

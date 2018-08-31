@@ -24,10 +24,9 @@ var setHeightWidth = function () {
 	
 	height = $(window).height();
 	width = $(window).width();
-	
 	// flag to allow clicking
     clickAllowed = true;
-	
+
 	$('.full-height').css('height', (height));
 	$('.page-wrapper').css('min-height', (height));
 
@@ -63,7 +62,7 @@ var admintres = function(){
 	var counterAnim = $('.counter-anim');
 	if( counterAnim.length > 0 ){
 		counterAnim.counterUp({ delay: 10,
-        time: 1000});
+        time: 3000});
 	}
 	
 	/*Tooltip*/
@@ -72,7 +71,7 @@ var admintres = function(){
 	
 	/*Popover*/
 	if( $('[data-toggle="popover"]').length > 0 )
-		$('[data-toggle="popover"]').popover()
+		$('[data-toggle="popover"]').popover();
 	
 	
 	/*Sidebar Collapse Animation*/
@@ -121,12 +120,12 @@ var admintres = function(){
 			return;
 		}
 		$('body > .wrapper').removeClass('open-right-sidebar open-setting-panel');
-		return;
+
 	});
 	
 	$(document).on('show.bs.dropdown', '.nav.navbar-right.top-nav .dropdown', function (e) {
 		$wrapper.removeClass('open-right-sidebar open-setting-panel');
-		return;
+
 	});
 	
 	$(document).on('click', '#setting_panel_btn', function (e) {
@@ -135,7 +134,7 @@ var admintres = function(){
 	});
 	$(document).on('click', '#toggle_mobile_nav', function (e) {
 		$wrapper.toggleClass('mobile-nav-open').removeClass('open-right-sidebar');
-		return;
+
 	});
 	
 
@@ -168,7 +167,7 @@ var admintres = function(){
 		} else if(e.which == 13) {
 			alert('Please type somthing!');
 		}
-		return;
+
 	});
 	
 	/*Chat*/
@@ -179,7 +178,7 @@ var admintres = function(){
 		} else if(e.which == 13) {
 			alert('Please type somthing!');
 		}
-		return;
+
 	});
 	$(document).on("keypress","#input_msg_send_widget",function (e) {
 		if ((e.which == 13)&&(!$(this).val().length == 0)) {
@@ -188,7 +187,7 @@ var admintres = function(){
 		} else if(e.which == 13) {
 			alert('Please type somthing!');
 		}
-		return;
+
 	});
 	$(document).on("keypress","#input_msg_send_chatapp",function (e) {
 		if ((e.which == 13)&&(!$(this).val().length == 0)) {
@@ -197,13 +196,39 @@ var admintres = function(){
 		} else if(e.which == 13) {
 			alert('Please type asomthing!');
 		}
-		return;
+
 	});
 
 	/*Slimscroll*/
 	$('.nicescroll-bar').slimscroll({height:'100%',color: '#878787', disableFadeOut : true,borderRadius:0,size:'4px',alwaysVisible:false});
 	$('.app-nicescroll-bar').slimscroll({height:'162px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
 	$('.users-nicescroll-bar').slimscroll({height:'370px',size: '4px',color: '#878787',disableFadeOut : true,borderRadius:0});
+
+
+	/*Product carousel*/
+	if( $('.product-carousel').length > 0 )
+	var $owl = $('.product-carousel').owlCarousel({
+		loop:true,
+		margin:15,
+		nav:true,
+		navText: ["<i class='ti-angle-left'></i>","<i class='ti-angle-right'></i>"],
+		dots:false,
+		autoplay:true,
+		responsive:{
+			0:{
+				items:1
+			},
+			400:{
+				items:2
+			},
+			767:{
+				items:3
+				},
+			1399:{
+				items:4
+			}
+		}
+	});
 
 	/*Refresh Init Js*/
 	var refreshMe = '.refresh';
@@ -245,7 +270,7 @@ var admintres = function(){
 		$tabs.find('>li').removeClass('next prev');
 		$prev.addClass('prev');
 		$next.addClass('next');
-		return;
+
 	});
 };
 /***** admintres function end *****/
@@ -256,7 +281,7 @@ var boxLayout = function() {
 		$(".box-layout .fixed-sidebar-right").css({right: $wrapper.offset().left + 300});
 		else if($wrapper.hasClass("box-layout rtl-layout"))
 			$(".box-layout .fixed-sidebar-right").css({left: $wrapper.offset().left});
-}
+};
 boxLayout();	
 
 
@@ -266,6 +291,7 @@ boxLayout();
 $(window).on("resize", function () {
 	setHeightWidth();
 	boxLayout();
+	console.log("Resize");
 }).resize();
 /***** Resize function end *****/
 

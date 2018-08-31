@@ -1,7 +1,9 @@
 import json
 import threading
+
 from flask import Flask, render_template, request,make_response
 from flask_caching import Cache
+from flask_sitemap import Sitemap, sitemap_page_needed
 from pymongo import MongoClient
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -9,8 +11,10 @@ from sklearn import preprocessing
 
 app = Flask(__name__)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+ext = Sitemap(app=app)
 
 mark = []
+
 
 #db읽기
 def read_collection(name):
@@ -32,8 +36,10 @@ def appendToMarkers(markerArray, marker):
 
 def marking(x):
     for i in read_collection(x[0]):
-        m = {'title': x[0], 'infobox': i[x[1]], 'lat': i['위도'], 'lng': i['경도'],
-             'icon': '/static/icon/'+x[0]+'.png'}
+        try:
+            m = {'title': str(x[0]), 'infobox': i[str(x[1])], 'lat': i['위도'], 'lng': i['경도'],'icon': '/static/icon/'+x[0]+'.png'}
+        except KeyError:
+            print(x[0],x[1])
         appendToMarkers(mark, m)
 
 def init():
@@ -41,9 +47,9 @@ def init():
                 ('schoolZone','info'),('construction','사업명'),
                 ('childPedestrianAccident','다발지명'),('childSafetyZone','대상시설명'),
                 ('fireStation','소방서'),('fireStationSafetyCenter','119안전센터명'),('roomSalon', '사업장명'),
-                ('policeOffice','경찰서명'),('childrSafetyHouse','이름'),('motel','사업장명'),('playGround','시설명'),
-                ('elementarySchool','시설명'),('kindergarten','시설명'),('cctv','관리기관명')
-                ]
+                ('policeOffice','경찰서명'),('childSafetyHouse','이름'),('motel','사업장명'),('playGround','시설명'),
+                ('elementarySchool','시설명'),('kindergarten','시설명'),('cctv','관리기관명'),
+              ]
 
     for i in options:
         t = threading.Thread(target=marking, args=(i,))
@@ -91,36 +97,76 @@ def location():
     resp.headers['Access-Control-Allow-Origin'] = '*'
     return resp
 
-# @app.before_first_request
-# def init():
 
 @app.route('/')
-def map():
-    return render_template('tmap.html', mark=mark)
+def index():
+    return render_template('map.html', mark=mark)
 
 
-@app.route('/documentation')
+@ext.register_generator
+def index():
+    yield 'index', {}
+
+
+@app.route('/intro')
 @cache.cached(50)
-def documentation():
-    return render_template('documentation.html')
+def intro():
+    return render_template('intro.html')
 
 
-@app.route('/polygon')
+@ext.register_generator
+def intro():
+    yield 'intro', {}
+
+
+@app.route('/gis')
 @cache.cached(50)
-def polygon():
+def gis():
     return render_template('polygon.html')
 
 
-@app.route('/echart')
+@ext.register_generator
+def gis():
+    yield 'gis', {}
+
+
+@app.route('/eda')
 @cache.cached(50)
-def echart():
+def eda():
     return render_template('echart3.html')
 
 
-@app.route('/datascience')
+@ext.register_generator
+def eda():
+    yield 'eda', {}
+
+
+@app.route('/data')
 @cache.cached(50)
-def dataScience():
+def data():
+    return render_template('data.html')
+
+
+@ext.register_generator
+def data():
+    yield 'data', {}
+
+
+@app.route('/analysis')
+@cache.cached(50)
+def analysis():
     return render_template('science.html')
+
+
+@app.route('/model')
+@cache.cached(50)
+def model():
+    return render_template('e.html')
+
+
+@ext.register_generator
+def model():
+    yield 'model', {}
 
 
 if __name__ == '__main__':

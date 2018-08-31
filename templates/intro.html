@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% block pre_style %}
+    <link rel="stylesheet" href="static/css/morris.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+{% endblock pre_style %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="clearfix"></div>
+            <div>
+                <img src="static/img/m1.png" style="width:80%;height:80%">
+            </div>
+        </div>
+        <div class="col-lg-6">
+                 <span style="line-height:140%">
+                 <p style="font-size:200%; line-height:140%;margin-top:30%;">우아한길은 우리아이안전한길의 약자로,</p>
+                     <a style="font-size:200%; line-height:140%;color:#ff6028" ;>서울시 어린이 안전구역 제공 시스템</a><a
+                         style="font-size:200%; line-height:140%;">을 의미합니다.</a>
+                     <br>
+                     <p style="line-height:140%">서울시 내의 CCTV, 경찰서, 어린이보호구역, 교통사고 현황 등 각종 요소를 분석하여고 안전요소,위험요소 및 안정등급을 나타냄으로써 어린이들이 안전할 수 있는 공간에 대한 정보를 통합, 제공하는 GIS시스템입니다.</p>
+                     <p style="line-height:140%">본 시스템은 보호자와 아동 스스로가 범죄나 사고에 취약한 물리적 환경을 판별하고 이를 회피하게 함으로써 범죄 혹은 사고 노출 기회를 감소시키기 위함에 있습니다..</p>
+                 </span>
+        </div>
+    </div>
+
+    <div class="row" style="margin: 30px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>어린이 사고 현황</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default border-panel card-view">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <h6 class="panel-title txt-dark">사망원인에 따른 어린이 사망자수(2014-2016년)</h6>
+                    </div>
+                    <div align=right>
+                        <button type="button" class="btn btn-danger btn-rounded btn-xs" data-container="body" title=""
+                                data-toggle="popover" data-placement="left"
+                                data-content="통계청이 공개한 보고서 ‘사고에 의한 어린이 사망:1996~2016년’을 보면 2014~2016년 3년 동안 비의도적 사고로 숨진 만 14세 이하 어린이 중 42.5%가 운수사고로 인해 사망했습니다."
+                                data-original-title="어린이 사망원인 1위 : 운수사고"><i class="fa fa-question"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div id="morris_bar_chart" class="morris-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 ">
+            <div class="panel panel-default border-panel card-view">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <h6 class="panel-title txt-dark">어린이 교통사고 사망자 유형별 비율</h6>
+                    </div>
+                    <div align=right>
+                        <button type="button" class="btn btn-danger btn-rounded btn-xs" data-container="body" title=""
+                                data-toggle="popover" data-placement="left"
+                                data-content="통계청이 공개한 보고서 ‘사고에 의한 어린이 사망:1996~2016년’을 보면 2014~2016년 3년 동안 운수사고로 사망한 어린이 중 43.7%가 보행 중 사고를 당했습니다."
+                                data-original-title="어린이 교통사고 유형 1위 : 보행사고"><i class="fa fa-question"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <canvas id="chart_8" height="175"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default border-panel card-view">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <h6 class="panel-title txt-dark">자녀의 안전에서 가장 우려되는 부분</h6>
+                    </div>
+                    <div align=right>
+                        <button type="button" class="btn btn-danger btn-rounded btn-xs" data-container="" title=""
+                                data-toggle="popover" data-placement="left"
+                                data-content="통계청에서 뽑은 <자녀의 안전에서 가장 우려되는 부분 1위>결과 교통사고 30.8%, 성범죄 17.5%로 1,2위를 차지하고 있습니다."
+                                data-original-title="자녀 안전 우려 부분 1위 : 교통사고"><i class="fa fa-question"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <canvas id="chart_6" height="160"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default border-panel card-view">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <h6 class="panel-title txt-dark">아동대상 성범죄 발생 건수 추이(2006-2015년)</h6>
+                    </div>
+                    <div align=right>
+                        <button type="button" class="btn btn-danger btn-rounded btn-xs" data-container="body" title=""
+                                data-toggle="popover" data-placement="left"
+                                data-content="2016년 경찰청의 범죄분석에 따르면 2006~2015년까지 만 13세 미만을 대상으로 한 성범죄의 수가 증가 추세를 보이고 있습니다."
+                                data-original-title="아동 성범죄율 증가"><i class="fa fa-question"></i></button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-wrapper collapse in">
+                    <div id="morris_extra_line_chart" class="morris-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin: 30px 0;">
+    <div class="row">
+        <div class="col-lg-6">
+                 <span style="line-height:140%">
+                 <p style="font-size:200%; line-height:140%;margin-top:30%;">이러한 상황에서</p>
+                     <a style="font-size:200%; line-height:140%;color:#ff6028" ;><strong>우아한길</strong>은 다음의 기능을 제공합니다.</a>
+                 </span>
+        </div>
+        <div class="col-lg-6">
+            <div class="clearfix"></div>
+            <div>
+                <img src="static/img/m1.png" style="width:80%;height:80%">
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="">
+                            <div id="owl_demo_3" class="owl-carousel owl-theme">
+                                <div class="item"><img src="static/img/c1.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c2.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c3.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c4.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c1.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c2.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c3.png" alt="우아한길 기능"></div>
+                                <div class="item"><img src="static/img/c4.png" alt="우아한길 기능"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+{% block script %}
+    <script src="static/js/chart/Chart.min.js"></script>
+    <script src="static/js/chart/raphael.min.js"></script>
+    <script src="static/js/chart/morris.min.js"></script>
+    <script src="static/js/chart/jquery.easypiechart.min.js"></script>
+    <script src="static/js/chart/data/chartjs-data.js"></script>
+    <script src="static/js/chart/data/morris-data.js"></script>
+    <script src="static/js/chart/data/easypiechart-data.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script>
+        /*Owl Init*/
+        $(document).ready(function ($) {
+            "use strict";
+            $('#owl_demo_3').owlCarousel({
+                margin: 20,
+                nav: true,
+                autoplay: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    800: {
+                        items: 3
+                    },
+                }
+            });
+        });
+    </script>
+
+{% endblock script %}

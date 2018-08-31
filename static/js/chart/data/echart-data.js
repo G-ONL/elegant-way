@@ -196,7 +196,7 @@ var echartsConfig = function() {
 				},
 
 			}]
-		}
+		};
 		eChart_2.setOption(option1);
 		eChart_2.resize();
 	}
@@ -406,7 +406,7 @@ var echartsConfig = function() {
 		eChart_4.setOption(option4);
 		eChart_4.resize();
 	}
-}
+};
 /*****E-Charts function end*****/
 
 /*****Resize function start*****/

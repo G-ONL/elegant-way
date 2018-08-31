@@ -769,7 +769,7 @@ small {
 hr {
   margin-top: 10px;
   margin-bottom: 20px;
-  border-top: 1px solid #22af47; }
+  border-top: 1px solid #FF5F4A; }
   hr.light-grey-hr {
     border-top: 1px solid #eee; }
 
@@ -4369,7 +4369,7 @@ div.colorpicker {
   border-radius: 0;
   padding: 0; }
   .popover h3.popover-title, .popover .fc-center h2.popover-title, .fc-center .popover h2.popover-title, .popover .popover-title.error-comment {
-    background-color: #22af47;
+    background-color: #ff6028;
     border-bottom: 1px solid #eee;
     border-radius: 0;
     font-family: "Roboto", sans-serif;

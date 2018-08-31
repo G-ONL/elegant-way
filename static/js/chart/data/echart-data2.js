@@ -91,7 +91,7 @@ var traffAcc = function() {
                 },
                 data: [216,242,323,425,457,524,528,530,576,592,609,610,617,628,633,643,652,662,665,668,671,767,771,772,789]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -183,7 +183,7 @@ var walkerAcc = function() {
                 },
                 data: [3,3,3,4,6,7,9,9,10,13,14,15,17,18,19,21,22,22,23,25,25,28,30,30,30]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -276,7 +276,7 @@ var schoolzoneAcc = function() {
                 },
                 data: [0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,3,3,3,4,4,7,7,9,10,14]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -367,7 +367,7 @@ var workzoneAcc = function() {
                 },
                 data:[57,63,65,67,67,70,72,79,79,81,81,83,90,94,95,100,101,103,108,114,120,121,123,127,156]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -458,7 +458,7 @@ var yoohoo = function() {
                 },
                 data: [33,44,70,78,79,82,89,93,101,109,125,128,129,133,141,163,180,196,217,254,261,267,296,303,507]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -549,7 +549,7 @@ var danggu = function() {
                 },
                 data: [16,33,78,86,86,88,104,115,135,139,139,142,152,153,161,168,169,177,189,215,223,226,235,262,454]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -640,7 +640,7 @@ var motel = function() {
                 },
                 data:[26,33,35,52,58,65,67,71,86,89,90,95,96,103,103,109,120,125,134,158,158,161,179,195,200]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -731,7 +731,7 @@ var safetyzone = function() {
                 },
                 data: [34,37,38,45,45,47,49,50,54,55,56,59,61,65,68,71,72,75,77,78,91,100,102,106,112]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -822,7 +822,7 @@ var cctv = function() {
                 },
                 data: [110,313,483,527,551,563,614,626,627,650,671,733,787,806,857,872,895,906,916,925,1123,1205,1345,1462,1756]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -913,7 +913,7 @@ var police = function() {
                 },
                 data: [5,7,8,8,8,8,8,8,8,8,8,9,9,9,9,9,10,10,10,10,11,11,14,15,20]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1004,7 +1004,7 @@ var elementary = function() {
                 },
                 data: [11,17,17,18,18,18,19,20,20,20,21,22,24,25,25,25,27,29,29,29,31,31,35,36,43]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1095,7 +1095,7 @@ var yoochi = function() {
                 },
                 data: [11,12,12,12,13,13,13,16,18,18,20,20,21,21,21,22,25,26,30,30,32,33,40,41,43]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1186,7 +1186,7 @@ var childrenhouse = function() {
                 },
                 data:[22,24,25,27,29,30,30,33,33,33,35,36,38,42,42,43,44,46,47,49,50,50,61,61,62]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1277,7 +1277,7 @@ var playplace = function() {
                 },
                 data: [64,96,139,141,160,164,222,235,241,247,258,259,277,277,282,308,309,314,321,397,439,467,486,512,595]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1368,7 +1368,7 @@ var bokjiplace = function() {
                 },
                 data:[0,2,2,2,2,3,3,3,3,4,5,5,6,6,6,6,7,7,7,7,10,12,12,13,16]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }
@@ -1459,7 +1459,7 @@ var safetyguard = function() {
                 },
                 data:[22,22,28,35,35,37,38,41,42,47,51,55,56,63,64,64,65,69,71,75,76,83,85,95,108]
             }]
-        }
+        };
         eChart_1.setOption(option1);
         eChart_1.resize();
     }

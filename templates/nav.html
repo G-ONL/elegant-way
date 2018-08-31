@@ -1,61 +1,52 @@
-{#<nav class="navbar navbar-inverse navbar-fixed-top" style="height: 70px;">#}
-{#    <div class="nav-wrap">#}
-{#        <div class="mobile-only-brand pull-left" style="height:100px;">#}
-{#            <div class="nav-header pull-left" style="height:100px;padding-left:10px">#}
-{#                <div class="logo-wrap" style="padding: 10px 0 0 0;">#}
-{#                    <a href="/">#}
-{#                        <img class="brand-img" src="static/icon/logo.png"#}
-{#                             style="height: 60px;width:46px;padding-bottom:20px;padding-right:10px" alt="brand"/>#}
-{#                        <span class="brand-text"><img style="height: 80px; " src="static/icon/logo3.png"#}
-{#                                                      alt="brand"/></span>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#            <a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left"#}
-{#               href="javascript:void(0);"><i class="ti-align-left"></i></a>#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
-
 <div class="fixed-sidebar-left">
     <ul class="nav navbar-nav side-nav nicescroll-bar">
         <li class="navigation-header">
             <a href="/">
                         <span class="brand-text">
-                            <img style="height: 70px; " src="static/icon/logo3.png" alt="우아한 길"/></span>
-                    </a>
+                            <img style="height: 50px; " src="static/icon/logo3.png" alt="우아한 길"/></span>
+            </a>
         </li>
-        <li>
-{#            <a href="{{ url_for('map') }}">#}
-{#                <div class="pull-left"><i class="ti-map-alt mr-20"></i><span class="right-nav-text">우아한 길</span></div>#}
-{#                <div class="pull-right"></div>#}
-{#                <div class="clearfix"></div>#}
-{#            </a>#}
-        </li>
-        <li>
-            <a href="{{ url_for('documentation') }}">
-                <div class="pull-left"><i class="ti-book mr-20"></i><span class="right-nav-text">소개글</span></div>
+        <li {% if request.path=='/intro' %}class="active"{% endif %}>
+            <a href="{{ url_for('intro') }}">
+                <div class="pull-left"><i class="ti-book mr-20"></i><span class="right-nav-text">소개</span></div>
                 <div class="pull-right"></div>
                 <div class="clearfix"></div>
             </a>
         </li>
-        <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
-                <div class="pull-left"><i class="ti-bar-chart  mr-20"></i><span class="right-nav-text">분석</span></div>
-                <div class="pull-right"><i class="ti-angle-down"></i></div>
+        <li {% if request.path=='/' %}class="active"{% endif %}>
+            <a href="{{ url_for('index') }}">
+                <div class="pull-left"><i class="ti-map-alt mr-20"></i><span class="right-nav-text">우아한길</span></div>
+                <div class="pull-right"></div>
                 <div class="clearfix"></div>
             </a>
-            <ul id="ecom_dr" class="collapse collapse-level-1">
-                <li>
-                    <a href="{{ url_for('dataScience') }}">안전등급 분석</a>
-                </li>
-                <li>
-                    <a href="{{ url_for('polygon') }}">서울시 구별 통계</a>
-                </li>
-                <li>
-                    <a href="{{ url_for('echart') }}">서울시 요소별 통계</a>
-                </li>
-            </ul>
+        </li>
+        <li {% if request.path=='/data' %}class="active"{% endif %}>
+            <a href="{{ url_for('data') }}">
+                <div class="pull-left"><i class="ti-server mr-20"></i><span class="right-nav-text">데이터</span></div>
+                <div class="pull-right"></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+        <li {% if request.path=='/gis' %}class="active"{% endif %}>
+            <a href="{{ url_for('gis') }}">
+                <div class="pull-left"><i class="ti-map mr-20"></i><span class="right-nav-text">구별 안전 관련 통계</span></div>
+                <div class="pull-right"></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+         <li {% if request.path=='/eda' %}class="active"{% endif %}>
+            <a href="{{ url_for('eda') }}">
+                <div class="pull-left"><i class="ti-bar-chart mr-20"></i><span class="right-nav-text">안전 관련 구별 통계</span></div>
+                <div class="pull-right"></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+        <li {% if request.path=='/model' %}class="active"{% endif %}>
+            <a href="{{ url_for('model') }}">
+                <div class="pull-left"><i class="ti-bar-chart mr-20"></i><span class="right-nav-text">예측 모델 개발</span></div>
+                <div class="pull-right"></div>
+                <div class="clearfix"></div>
+            </a>
         </li>
     </ul>
 </div>

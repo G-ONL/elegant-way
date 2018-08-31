@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row" style="margin:0 0 20px 0">
+        <div class="col-sm-12">
+            <a style="font-size:200%; line-height:140%;color:#ff6028" ;>Preprocessing</a>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>Encoding</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="uo-list mt-20 mb-20 pl-15">
+                            <h4>features</h4>
+                            <li>적당 경찰서, 숙박업소, 공사진행현황, CCTV, 어린이
+                                놀이시설, 아동안전지킴이집, 어린이 보호구역
+                                (초등학교,유치원,어린이집), (유흥업소,단란주점)의 개수
+                            </li>
+                            <br>
+                            <hr>
+                            <br>
+                            <h4>target</h4>
+                            <li>
+                                '안전','주의','위험'
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>Feature Engineering</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body" style="text-align: center">
+                        <img src="static/img/heatmap.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 50px 0 20px 0;">
+        <div class="col-sm-12">
+            <a style="font-size:200%; line-height:140%;color:#ff6028" ;>Training</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_t.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_t.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_t.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>Cross-Validaion</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_l.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_l.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_l.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 50px 0 0 0;">
+        <div class="col-sm-12">
+            <a style="font-size:200%; line-height:140%;color:#ff6028" ;>Testing</a>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>Confusion Matrix</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_con.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_con.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_con.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>Evaluation Metrix</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_cla.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_cla.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_cla.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 30px 0 20px 0;">
+        <div class="col-sm-12" style="text-align: center;">
+            <a style="font-size:150%; line-height:140%;color:#ff6028" ;>ROC Curve</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default card-view">
+                <div class="panel-wrapper collapse in">
+                    <div class="panel-body">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_p.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_p.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_p.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/LR_r.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/RF_r.png" style="width:90%;">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="static/img/GB_r.png" style="width:90%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
